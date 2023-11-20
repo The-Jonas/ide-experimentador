@@ -8,40 +8,37 @@
 Daniel do Carmo Figueiredo - **160057922**
 Gabriel de Castro Dias - **211055432**
 João Victor Pereira Vieira - **211036114**
-Luiz Henrique Silva Andrade - **211010430**
+Luiz Henrique Silva de Andrade - **211010430**
 Sofia Dy La Fuente Monteiro - **211055530**
 
 ``` 
 
 ###Escopo do Projeto:
 
-- Objetivo: Adicionar a tela de pesquisa de testes por filtros, com funcionalidades específicas para cada filtro.
+- **Objetivo:** Adicionar à tela de pesquisa de testes por filtros, as funcionalidades específicas para cada filtro.
 
-- Entregas: Desenvolvimento completo das features de filtro, tanto no frontend quanto no backend, até a data de entrega.
+- **Entregas:** Desenvolvimento completo das features de filtro, tanto no frontend quanto no backend, até a data de entrega.
 
-- Requisitos: Utilização das tecnologias React e Ruby on Rails, com abordagem funcional do projeto.
+- **Requisitos:** Utilização das tecnologias React e Ruby on Rails, com abordagem funcional do projeto.
 
-- Restrições: Tempo de desenvolvimento limitado, sendo necessário cumprir os prazos estabelecidos. Pré-requisito de conhecimento das tecnologias mencionadas.
+- **Restrições:** Tempo de desenvolvimento limitado, sendo necessário cumprir os prazos estabelecidos. Pré-requisito de conhecimento das tecnologias mencionadas.
 
-- Exclusões: Não serão implementadas as issues de outros grupos, focando apenas nas funcionalidades de filtro.
+- **Exclusões:** Não serão implementadas as issues de outros grupos, focando apenas nas funcionalidades de filtro.
 
-- Marcos: Cada sprint deve ter um objetivo bem definido, com desenvolvimento dentro do prazo estabelecido. O código deve ser claro e conciso.
-
-
+- **Marcos:** Cada sprint deve ter um objetivo bem definido, com desenvolvimento dentro do prazo estabelecido. O código deve ser claro e conciso.
 
 
+## Perguntas referentes a Sprint_1:
 
-Perguntas referentes a Sprint_1:
-
-Quem fez o papel de Scrum Master? E de Product Owner?
+### Quem fez o papel de Scrum Master? E o de Product Owner?
 
 - Quem ficou responsável pelo papel de Scrum Master foi _João Victor Pereira_ , o papel de Product Owner não foi feito por ninguém nessa sprint, visto que todos participaram da reunião com o Stakeholder
 
-Quais funcionalidades serão desenvolvidas? Quais serão as regras de negócio para cada funcionalidade?
+### Quais funcionalidades serão desenvolvidas? Quais serão as regras de negócio para cada funcionalidade?
 
-- Filtros para Tags, Coordenadas, Bateria, Status e Ativo
+- As funcionalidade a serem desenvolvidas serão: Filtros para Tags, Coordenadas, Bateria, Status e Ativo
 
-*Regras de Negócio
+* Regras de Negócio
 - Os campos de bateria e coordenada limitará a somente utilizar números inteiros
 - Quando uma coordenada estiver vazia, será considerado somente os campos que estiverem prenchidos para a busca
 - Será possível buscar por um ou mais filtros ao mesmo tempo, porém o filtro 'bateria' não poderá se repetir
