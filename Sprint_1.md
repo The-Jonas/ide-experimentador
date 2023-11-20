@@ -1,18 +1,17 @@
-## Grupo 05 
+# Grupo 05
 
-# Nome e Matrícula dos Integrantes do Grupo:
+## Nome do Projeto: - Issue 11: Dado que sou um usúario, quero poder filtrar os testes
+
+## Nome e Matrícula dos Integrantes do Grupo:
  
 ```
+Daniel do Carmo Figueiredo - **160057922**
+Gabriel de Castro Dias - **211055432**
 João Victor Pereira Vieira - **211036114**
 Luiz Henrique Silva Andrade - **211010430**
 Sofia Dy La Fuente Monteiro - **211055530**
-Gabriel de Castro Dias - **211055432**
-Daniel do Carmo Figueiredo - **160057922**
+
 ``` 
-
-## Nome do Projeto: - Issue 11 _ Dado que sou um usúario, quero poder filtrar os testes
-
-
 
 ###Escopo do Projeto:
 
