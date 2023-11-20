@@ -1,14 +1,14 @@
+
 ## Grupo 05 (Issue 11): Dado que sou um usúario, quero poder filtrar os testes
 
 ### Nome e Matrícula dos Integrantes do Grupo:
  
 ```
-Daniel do Carmo Figueiredo - **160057922**
-Gabriel de Castro Dias - **211055432**
-João Victor Pereira Vieira - **211036114**
-Luiz Henrique Silva de Andrade - **211010430**
-Sofia Dy La Fuente Monteiro - **211055530**
-
+Daniel do Carmo Figueiredo - 160057922
+Gabriel de Castro Dias - 211055432
+João Victor Pereira Vieira - 211036114
+Luiz Henrique Silva de Andrade - 211010430
+Sofia Dy La Fuente Monteiro - 211055530
 ``` 
 
 ### Escopo do Projeto:
@@ -26,23 +26,24 @@ Sofia Dy La Fuente Monteiro - **211055530**
 - **Marcos:** Cada sprint deve ter um objetivo bem definido, com desenvolvimento dentro do prazo estabelecido. O código deve ser claro e conciso.
 
 
-## Perguntas referentes a Sprint 1:
+### Perguntas referentes a Sprint 1:
 
-### Quem fez o papel de Scrum Master? E o de Product Owner?
+#### Quem fez o papel de Scrum Master? E o de Product Owner?
 
 - Quem ficou responsável pelo papel de Scrum Master foi _João Victor Pereira_ , o papel de Product Owner não foi feito por ninguém nessa sprint, visto que todos participaram da reunião com o Stakeholder
 
-##### Quais funcionalidades serão desenvolvidas? Quais serão as regras de negócio para cada funcionalidade?
+#### Quais funcionalidades serão desenvolvidas? Quais serão as regras de negócio para cada funcionalidade?
 
-- As funcionalidade a serem desenvolvidas serão: Filtros para Tags, Coordenadas Bateria, Status e Ativo
++ As funcionalidade a serem desenvolvidas serão: 
+    - Filtros para Tags, Coordenadas Bateria, Status e Ativo
 
-Regras de Negócio:
-- Os campos de bateria e coordenada limitará a somente utilizar números inteiros
-- Quando uma coordenada estiver vazia, será considerado somente os campos que estiverem prenchidos para a busca
-- Será possível buscar por um ou mais filtros ao mesmo tempo, porém o filtro 'bateria' não poderá se repetir
-- Somente o filtro 'tags' poderá utilizar condicional "&" e "Ou", para os demais só poderá ser utilizado o "Ou"
++ Regras de Negócio:
+    - Os campos de bateria e coordenada limitará a somente utilizar números inteiros
+    - Quando uma coordenada estiver vazia, será considerado somente os campos que estiverem prenchidos para a busca
+    - Será possível buscar por um ou mais filtros ao mesmo tempo, porém o filtro 'bateria' não poderá se repetir
+    - Somente o filtro 'tags' poderá utilizar condicional "&" e "Ou", para os demais só poderá ser utilizado o "Ou"
 
-##### Quem ficou responsável por cada funcionalidade?
+#### Quem ficou responsável por cada funcionalidade?
 
 - **Filtro de Tags:** _Gabriel e Daniel_
 - **Filtro de Coordenadas:** _João Victor_
@@ -50,7 +51,7 @@ Regras de Negócio:
 - **Filtro de Status e Ativo:** _Sofia_
 
 
-##### Qual a política de branching utilizada pelo grupo?
+#### Qual a política de branching utilizada pelo grupo?
 
 - Utilizaremos somente uma Branch de Feature, onde todos do grupo trabalharão juntos na mesma branching
 
@@ -71,8 +72,7 @@ Regras de Negócio:
     Então eu devo ver os campos de filtro 'tag','coordenadas', 'bateria', ‘status de erro’ e  ‘ativo’
 ```
 
-##### Cenário: Um usuário pesquisa por um teste utilizando somente uma tag (feliz)
-{c:yellow}[fa=check-circle /]{/c} 4
+##### Cenário: Um usuário pesquisa por um teste utilizando somente uma tag (feliz) **4**
 ```
     Dado que tenha um ou mais testes com a tag 'Rápido' cadastrado
     E que eu selecione o filtro 'tag'
@@ -81,8 +81,7 @@ Regras de Negócio:
     Então eu devo ver todos os testes com a tag 'Rápido' cadastrado
 ```
 
-#### Cenário: Um usuário pesquisa por um teste utilizando somente as coordenadas (feliz)
-{c:yellow}[fa=check-circle /]{/c} 2
+#### Cenário: Um usuário pesquisa por um teste utilizando somente as coordenadas (feliz) **2**
 ```
     Dado que tenha um ou mais testes com as coordenadas "X=0 Y=1 Z=0" cadastrado
     E que eu selecione o filtro 'coordenadas'
@@ -91,8 +90,7 @@ Regras de Negócio:
     Então eu devo ver todos os testes com as coordenadas 'X=0 Y=1 Z=0' cadastrado
 ```
 
-#### Cenário: Um usuário pesquisa por um teste utilizando somente a bateria (feliz)
-{c:yellow}[fa=check-circle /]{/c} 2
+#### Cenário: Um usuário pesquisa por um teste utilizando somente a bateria (feliz) **2**
 ```
     Dado que tenha um ou mais testes com robôs com bateria igual a '70%'
     E que eu selecione o filtro 'bateria'
@@ -102,8 +100,7 @@ Regras de Negócio:
     Então eu devo ver todos os testes em que o robô possui a bateria igual a '70%'
 ```
 
-#### Cenário: Um usuário pesquisa por um teste utilizando o filtro ativo (feliz) 
-{c:yellow}[fa=check-circle /]{/c} 3
+#### Cenário: Um usuário pesquisa por um teste utilizando o filtro ativo (feliz) **3**
 ```
     Dado que tenha pelo menos um teste cadastrado no experimento
     E que eu selecione o filtro ‘ativo’ 
@@ -112,8 +109,7 @@ Regras de Negócio:
     Então eu devo ver todos os testes que foram desabilitados no experimento
 ```
 
-#### Cenário: Um usuário pesquisa por um teste utilizando somente o filtro ‘status’ (feliz)
-{c:yellow}[fa=check-circle /]{/c} 3
+#### Cenário: Um usuário pesquisa por um teste utilizando somente o filtro ‘status’ (feliz) **3**
 ```
     Dado que exista um ou mais testes cadastrados no experimento
     E que eu selecione o filtro ‘Status’ 
@@ -121,8 +117,7 @@ Regras de Negócio:
     Então eu devo ver todos os testes que foram concluídos sem nenhum erro
 ```
 
-#### Cenário: Usuário pesquisa por um teste utilizando somente a bateria (triste)
-{c:yellow}[fa=check-circle /]{/c} 2
+#### Cenário: Usuário pesquisa por um teste utilizando somente a bateria (triste) **2**
 ```
 	Dado que existem testes associados a bateria,
 	Quando eu selecionar a opção filtrar por bateria,
@@ -132,8 +127,7 @@ Regras de Negócio:
 	Então devo ver uma mensagem de aviso, indicando que o número inteiro só pode ser entre 0 e 100.
 ```
 	
-#### Cenário: Um Usuário pesquisa por um teste utilizando mais de um filtro (feliz)
-{c:yellow}[fa=check-circle /]{/c} 4
+#### Cenário: Um Usuário pesquisa por um teste utilizando mais de um filtro (feliz) **4**
 ```
     Dado que tenha pelo menos um teste cadastrado no experimento,
     E que eu selecione o filtro ‘tag’,
@@ -147,12 +141,12 @@ Regras de Negócio:
     Então devo ver todos os testes que tenham a tag ‘Ciência’ quanto os testes com a bateria em ‘92%’.
 ```
 
-#### Cenário: Um usuário pesquisa por um teste utilizando somente um campo do filtro (triste) 
-{c:yellow}[fa=check-circle /]{/c} 1
+#### Cenário: Um usuário pesquisa por um teste utilizando somente um campo do filtro (triste) **1**
 ```
     Quando eu escrever no campo de um ou mais filtro/s
     Dado que não tenha nenhum teste com esse/s 'filtro/s' cadastrado
     Quando eu apertar 'enter'
     Então eu devo ver uma mensagem de aviso, indicando que nenhum teste foi encontrado para o/os filtros selecionado/s
 ```
+
 
