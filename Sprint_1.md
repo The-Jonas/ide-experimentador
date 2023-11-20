@@ -1,7 +1,7 @@
-##Grupo 05 
+## Grupo 05 
 
-#Nome e Matrícula dos Integrantes do Grupo:
-
+# Nome e Matrícula dos Integrantes do Grupo:
+ 
 ```
 João Victor Pereira Vieira - **211036114**
 Luiz Henrique Silva Andrade - **211010430**
@@ -10,7 +10,7 @@ Gabriel de Castro Dias - **211055432**
 Daniel do Carmo Figueiredo - **160057922**
 ``` 
 
-##Nome do Projeto: - Issue 11 _ Dado que sou um usúario, quero poder filtrar os testes
+## Nome do Projeto: - Issue 11 _ Dado que sou um usúario, quero poder filtrar os testes
 
 
 
@@ -40,47 +40,111 @@ Quem fez o papel de Scrum Master? E de Product Owner?
 
 Quais funcionalidades serão desenvolvidas? Quais serão as regras de negócio para cada funcionalidade?
 
--
+- Filtros para Tags, Coordenadas, Bateria, Status e Ativo
+
+*Regras de Negócio
+- Os campos de bateria e coordenada limitará a somente utilizar números inteiros
+- Quando uma coordenada estiver vazia, será considerado somente os campos que estiverem prenchidos para a busca
+- Será possível buscar por um ou mais filtros ao mesmo tempo, porém o filtro 'bateria' não poderá se repetir
+- Somente o filtro 'tags' poderá utilizar condicional "&" e "Ou", para os demais só poderá ser utilizado o "Ou"
 
 Quem ficou responsável por cada funcionalidade?
 
--
+- Filtro de Tags: Gabriel e Daniel
+- Filtro de Coordenadas: João Victor
+- Filtro de Bateria: Luiz
+- Filtro de Status e Ativo: Sofia
+
 
 Qual a política de branching utilizada pelo grupo?
 
--
+- Utilizaremos somente uma Branch de Feature, todos do grupo trabalharão nela
 
 
-###Histórias de Usuário com a métrica Velocity
+### Histórias de Usuário com a métrica Velocity
 
 Contexto: Dado que sou um usuário
           E estou na tela de pesquisa com filtros
 
-Cénario 1 - Uso de um filtro específico (caminho feliz) - **_1_**
+Contexto:
+    Dado que eu esteja logado como usuário no ide-experimentador
+    E eu esteja na página de pesquisar por testes
+    Quando eu entrar no campo de pesquisa
+    Então eu devo ver os campos de filtro 'tag','coordenadas', 'bateria', ‘status de erro’ e  ‘ativo’
+    
+Cenário: Um usuário pesquisa por um teste utilizando somente uma tag (feliz) - **_4_**
+    Dado que tenha um ou mais testes com a tag 'Rápido' cadastrado
+    E que eu selecione o filtro 'tag'
+    Quando eu escrever 'Rápido' na barra de pesquisa do filtro
+    E eu clicar no botão 'Pesquisar' 
+    Então eu devo ver todos os testes com a tag 'Rápido' cadastrado
 
-Dado que sou um usuário,
-E existem vários testes com diferentes filtros,
-Quando eu seleciono a opção de filtrar por uma informação específica,
-Então devo ver apenas os testes associados a esse filtro na lista de testes
+Cenário: Um usuário pesquisa por um teste utilizando somente as coordenadas (feliz) - **_2_**
+    Dado que tenha um ou mais testes com as coordenadas "X=0 Y=1 Z=0" cadastrado
+    E que eu selecione o filtro 'coordenadas'
+    Quando eu escrever '0 1 0' nos três campos "X Y Z" respectivamente
+    E eu clicar no botão 'Pesquisar' 
+    Então eu devo ver todos os testes com as coordenadas 'X=0 Y=1 Z=0' cadastrado
 
-Cénario 2 - Uso de múltiplos filtros (caminho feliz) - **_2_**
+Cenário: Um usuário pesquisa por um teste utilizando somente a bateria (feliz) - **_2_**
+    Dado que tenha um ou mais testes com robôs com bateria igual a '70%'
+    E que eu selecione o filtro 'bateria'
+    E selecionar o campo de inserção
+    Quando eu inserir um o valor “70” na porcentagem da bateria
+    E clicar no botão 'Pesquisar'
+    Então eu devo ver todos os testes em que o robô possui a bateria igual a '70%'
 
-Dado que sou um usuário
-E existem vários testes com diferentes filtros,
-Quando eu selecionar múltiplas opções de filtros,
-Eu devo ver apenas os testes associados a todos os filtros selecionados
+Cenário: Um usuário pesquisa por um teste utilizando o filtro ativo (feliz) - **_3_**
+    Dado que tenha pelo menos um teste cadastrado no experimento
+    E que eu selecione o filtro ‘ativo’ 
+    Quando eu selecionar a opção ‘desabilitado’
+    E eu clicar no botão ‘Pesquisar’
+    Então eu devo ver todos os testes que foram desabilitados no experimento
 
-Cenário 3 - Uso de um filtro específico (caminho triste) - **_1_**
 
-Dado que sou um usuário,
-E não existem testes associados ao filtro selecionado,
-Quando seleciono o filtro,
-Então devo ver uma mensagem de aviso, indicando que nenhum teste foi encontrado para o filtro selecionado
 
-Cenário 4 - Uso de múltiplos filtros (caminho triste) - **_1_**
 
-Dado que sou um usuário,
-E não existem testes associados a uma combinação de filtros,
-Quando eu seleciono mais de um tipo de filtro,
-Então devo ver uma mensagem de aviso, indicando que não existem testes associados a essa combinação de filtros
+
+
+Cenário: Um usuário pesquisa por um teste utilizando somente o filtro ‘status’ (feliz) - **_3_**
+    Dado que exista um ou mais testes cadastrados no experimento
+    E que eu selecione o filtro ‘Status’ 
+    Quando eu selecionar a opção ‘Aprovado’
+    Então eu devo ver todos os testes que foram concluídos sem nenhum erro
+
+
+
+
+
+Cenário: Usuário pesquisa por um teste utilizando somente a bateria (triste) - **_2_**
+
+	Dado que existem testes associados a bateria,
+	Quando eu selecionar a opção filtrar por bateria,
+	E selecionar o campo de inserção,
+	Quando eu inserir um o valor ‘121’ na porcentagem da bateria,
+    E clicar no botão 'Pesquisar',
+	Então devo ver uma mensagem de aviso, indicando que o número inteiro só pode 
+ser entre 0 e 100.
+
+	
+Cenário: Um Usuário pesquisa por um teste utilizando mais de um filtro (feliz) **_4_**
+
+    Dado que tenha pelo menos um teste cadastrado no experimento,
+    E que eu selecione o filtro ‘tag’,
+    Quando eu escrever ‘Ciência’ na barra de pesquisa do filtro,
+    Então eu devo ver um botão de ‘+’ do lado do filtro ‘tag’,
+    Quando eu clicar no botão ‘+’,
+    Então devo ver mais uma caixa de seleção de filtro e também outra caixa de seleção ,central com as opções ‘&’ ou ‘Ou’ ,
+    Quando eu selecionar a opção ‘Ou’ e o filtro ‘bateria’,
+    E inserir um o valor ‘92’ na porcentagem da bateria,
+    E clicar no botão ‘Pesquisar’,
+    Então devo ver todos os testes que tenham a tag ‘Ciência’ quanto os testes com a bateria em ‘92%’.
+
+
+Cenário: Um usuário pesquisa por um teste utilizando somente um campo do filtro (triste) **_1_**
+    Quando eu escrever no campo de um ou mais filtro/s
+    Dado que não tenha nenhum teste com esse/s 'filtro/s' cadastrado
+    Quando eu apertar 'enter'
+    Então eu devo ver uma mensagem de aviso, indicando que nenhum teste foi encontrado para o/os filtros selecionado/s
+
 
