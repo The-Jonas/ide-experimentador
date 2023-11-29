@@ -1,8 +1,8 @@
 class HelloController < ApplicationController
   def world
-    @texto = "teste"
+    @tags = "teste"
   end
   def index
-    render json: "teste"
+    render json: Tag.all
   end
 end
