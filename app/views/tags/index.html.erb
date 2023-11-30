@@ -3,9 +3,18 @@
 <ul>
     <% @tags.each do |tag| %>
     <li>
-        <%= tag.name %>
+        <a href="/tags/<%= tag.id%>">
+            <%=tag.name%>
+        </a>
     </li>
-
     <% end %>
 </ul> 
+
+
+<body>
+
+    <label for="CaixaDeTexto"> Digite Aqui:</label>
+    <input type="text" id="CaixaDeTexto" name="CaixaDeTexto">
+
+</body>
 

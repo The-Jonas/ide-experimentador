@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'hello#index'
+  root 'tags#index'
 
   get '/tags', to: 'tags#index'
+  get '/tags/:id', to: 'tags#show'
+
   get 'hello/world', to: "hello#index" 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
