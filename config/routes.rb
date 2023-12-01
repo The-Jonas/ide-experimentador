@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   get '/tags', to: 'tags#index'
   get '/tags/:id', to: 'tags#show'
+  get '/coordenadas', to: 'coordenadas#index', as: 'coordenadas_index'
 
   get 'hello/world', to: "hello#index" 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
