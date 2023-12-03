@@ -22,7 +22,7 @@ trial = Trial.create(id: 2, name: 'Teste 2', disabled: false, deleted: false, ru
 trial = Trial.create(id: 3, name: 'Teste 1', disabled: false, deleted: false, runs: 82, experiment: Experiment.find(2))
 trial = Trial.create(id: 4, name: 'Teste 4', disabled: false, deleted: false, runs: 49, experiment: Experiment.find(1))
 trial = Trial.create(id: 5, name: 'Teste 5', disabled: false, deleted: false, runs: 49, experiment: Experiment.find(1))
-
+trial = Trial.create(id: 6, name: 'Teste 9', disabled: false, deleted: false, runs: 98, experiment: Experiment.find(2))
 
 #Coordenadas no sistema 
 

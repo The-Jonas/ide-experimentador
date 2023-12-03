@@ -4,10 +4,6 @@ class CoordenadasController < ApplicationController
 
         testes = Trial.all                 #"testes" é uma lista que recebe todos os testes
 
-        @Xfind = params[:x]
-        @Yfind = params[:y]                    #Recebe os parâmetros da view
-        @Zfind = params[:z]
-
         if testes.any?                     #Só roda se tiver algum teste registrado (dentro da lista)
 
             @ligacoes = TrialFactor.all
@@ -50,7 +46,7 @@ class CoordenadasController < ApplicationController
         else
             puts "Não há testes registrados."
         end
-
+        redirect_to filtros_index_path(lista_de_testes_coord: lista_de_testes_incluidos, lista_de_coordenadas_por_indice: lista_de_coordenadas_por_indice)
     end
 end
 

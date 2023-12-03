@@ -37,12 +37,6 @@ class BatteryController < ApplicationController
 end
 
 
-[['Experimento 1',  'Teste 5']['Experimento 1',  'Teste 1']['Experimento 3', 'Teste 2']['Experimento 1',  'Teste 3']]
-[['Corrida', 'Ciência'], ['Lixo', 'Ciência'], ['Picolé', 'Ciência'], ['Corrida', 'Geladinho']]
-
-[['Experimento 1',  'Teste 5']['Experimento 1',  'Teste 1']['Experimento 3', 'Teste 2']['Experimento 2',  'Teste 3']]
-[[], [], ['X','Y','Z']]
-
 
 
 
