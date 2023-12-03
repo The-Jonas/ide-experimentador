@@ -1,20 +1,12 @@
 <h1>Tags</h1>
 
-<ul>
-    <% @tags.each do |tag| %>
-    <li>
-        <a href="/tags/<%= tag.id%>">
-            <%=tag.name%>
-        </a>
-    </li>
-    <% end %>
-</ul> 
+<%= form_tag(tags_index_path, method: :get) do %>
+  <%= label_tag "Escreva a Tag:" %>
+  <%= text_field_tag "t" %>
+  <%= submit_tag "Enviar" %>
+<% end %>
 
 
-<body>
 
-    <label for="CaixaDeTexto"> Digite Aqui:</label>
-    <input type="text" id="CaixaDeTexto" name="CaixaDeTexto">
 
-</body>
 

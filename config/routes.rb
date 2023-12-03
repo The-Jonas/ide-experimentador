@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'tags#index'
 
-  get '/tags', to: 'tags#index'
-  get '/tags/:id', to: 'tags#show'
+  get '/tags', to: 'tags#index', as: 'tags_index'
   get '/coordenadas', to: 'coordenadas#index', as: 'coordenadas_index'
+  get '/bateria', to: 'battery#index', as: "battery_index"
 
   get 'hello/world', to: "hello#index" 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
