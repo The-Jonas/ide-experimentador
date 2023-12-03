@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   get '/tags', to: 'tags#index'
   get '/tags/:id', to: 'tags#show'
   get '/coordenadas', to: 'coordenadas#index', as: 'coordenadas_index'
+  get '/status', to: 'status#index'
 
-  get 'hello/world', to: "hello#index" 
+  get 'hello/world', to: "hello#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -16,4 +17,3 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 end
-

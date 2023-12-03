@@ -1,0 +1,14 @@
+<!-- app/views/status/index.html.erb -->
+<h1>Filtrar Execuções de Testes por Status</h1>
+
+<%= form_tag(status_path, method: :get) do %>
+  <label for="statusFilter">Filtrar por Status:</label>
+  <%= select_tag 'status', options_for_select(@statuses, @qualstatus), include_blank: true %>
+  <%= submit_tag 'Filtrar' %>
+<% end %>
+
+<ul>
+  <% @executions.each do |trial_execution| %>
+     <li><%= trial_execution.log %> - <%= trial_execution.status %></li>
+  <% end %>
+</ul>
