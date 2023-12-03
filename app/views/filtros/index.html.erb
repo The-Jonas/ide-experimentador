@@ -9,5 +9,24 @@
   <div class="actions">
     <%= submit_tag 'Selecionar' %>
   </div>
+
+  <label for="status">Status:</label>
+  <%= select_tag :status, options_for_select(["aprovado", "reprovado", "em_execucao", "parcialmente_aprovado"]), include_blank: true %>
+
+  <label for="ativos">Ativos:</label>
+  <%= select_tag :ativos, options_for_select(["Habilitado", "Desabilitado"]), include_blank: true %>
+
+  <label for="coordenadas">Coordenadas:</label>
+  <%= text_field_tag :coordenadas_x, 'X' %>
+  <%= text_field_tag :coordenadas_y, 'Y' %>
+  <%= text_field_tag :coordenadas_z, 'Z' %>
+
+  <label for="bateria">Bateria:</label>
+  <%= text_field_tag :bateria %>
+
+  <label for="tags">Tags:</label>
+  <%= text_field_tag :tags %>
+
+  <%= submit_tag 'Filtrar' %>
 <% end %>
 
