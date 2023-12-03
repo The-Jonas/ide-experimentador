@@ -33,6 +33,7 @@ class BatteryController < ApplicationController
         else
             puts 'Não existem testes cadastrados'
         end
+        redirect_to filtros_index_path(lista_de_testes_bateria: lista_de_testes_para_execucao, lista_de_baterias_por_indice: lista_de_baterias_por_indice)
     end
 end
 

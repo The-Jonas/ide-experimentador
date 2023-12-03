@@ -1,1 +1,13 @@
 <h1>Filtros</h1>
+
+<%= form_tag(filtros_index_path, method: :get) do %>
+  <div class="field">
+    <%= label_tag :experimento, 'Selecione um experimento:' %>
+    <%= select_tag :experimento, options_for_select(@todos_os_experimentos) %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'Selecionar' %>
+  </div>
+<% end %>
+

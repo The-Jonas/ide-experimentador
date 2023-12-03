@@ -12,8 +12,8 @@ p 'Iniciando carregamento de dados'
 
 #Experimentos do Sistema
 
-experimento = Experiment.create(id: 1, name: 'Experimento1', disabled: false)
-experimento = Experiment.create(id: 2, name: 'Experimento2', disabled: false)
+experimento = Experiment.create(id: 1, name: 'Experimento9', disabled: false)
+experimento = Experiment.create(id: 2, name: 'Experimento5', disabled: false)
 
 #Testes do sistema
 

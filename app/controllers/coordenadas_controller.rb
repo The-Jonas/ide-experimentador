@@ -24,6 +24,7 @@ class CoordenadasController < ApplicationController
                         lista_de_testes_incluidos << [nome_do_experimento, nome_do_teste]
                         lista_de_coordenadas_por_indice << ['X', 'Y', 'Z']
                     end
+                end
 
                 index = lista_de_testes_incluidos.find_index{ |lista| lista[0] == nome_do_experimento && lista[1] == nome_do_teste }
 
@@ -41,12 +42,11 @@ class CoordenadasController < ApplicationController
                 puts "Lista de Experimentos E Testes: #{lista_de_testes_incluidos}"
                 puts "Lista de Coordenadas Por Indíce: #{lista_de_coordenadas_por_indice}"
 
-                end
+                
             end
         else
             puts "Não há testes registrados."
         end
-        redirect_to filtros_index_path(lista_de_testes_coord: lista_de_testes_incluidos, lista_de_coordenadas_por_indice: lista_de_coordenadas_por_indice)
     end
 end
 
