@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'tags#index'
+  root 'filtros#index'
 
   get '/tags', to: 'tags#index', as: 'tags_index'
   get '/coordenadas', to: 'coordenadas#index', as: 'coordenadas_index'

@@ -158,14 +158,19 @@ class FiltrosController < ApplicationController
 
         if params[:experimento].present?
             @selected_experimento = params[:experimento]        #Seleção do Experimento
+            @pegaOx = params[:coordenadas_x]
+            @pegaOy = params[:coordenadas_y]
+            @pegaOz = params[:coordenadas_z]
+
+            @pegaStatus = params[:status]
+            @pegativo = params[:ativos]
+
+            @pegaBateria = params[:bateria]
+            @pegaTag = params[:tags]
         end
-        
+    
         puts "Experimento rodando #{@selected_experimento} e a lista #{@todos_os_experimentos}"
-        
-        
-
-
-
+        puts "Status: #{@pegaStatus}, Ativo: #{@pegativo}, Bateria: #{@pegaBateria}, Tag: #{@pegaTag} e Coordenadas #{@pegaOx}, #{@pegaOy}, #{@pegaOz}"
 
 
 

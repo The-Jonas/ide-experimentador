@@ -1,14 +1,14 @@
 <h1>Filtros</h1>
 
+<!-- Seleciona o experimento -->
+
 <%= form_tag(filtros_index_path, method: :get) do %>
   <div class="field">
     <%= label_tag :experimento, 'Selecione um experimento:' %>
     <%= select_tag :experimento, options_for_select(@todos_os_experimentos) %>
   </div>
 
-  <div class="actions">
-    <%= submit_tag 'Selecionar' %>
-  </div>
+  <!-- Caixinhas para os inputs -->
 
   <label for="status">Status:</label>
   <%= select_tag :status, options_for_select(["aprovado", "reprovado", "em_execucao", "parcialmente_aprovado"]), include_blank: true %>
@@ -17,9 +17,12 @@
   <%= select_tag :ativos, options_for_select(["Habilitado", "Desabilitado"]), include_blank: true %>
 
   <label for="coordenadas">Coordenadas:</label>
-  <%= text_field_tag :coordenadas_x, 'X' %>
-  <%= text_field_tag :coordenadas_y, 'Y' %>
-  <%= text_field_tag :coordenadas_z, 'Z' %>
+  <%= label_tag "X -" %>
+  <%= text_field_tag :coordenadas_x %>
+  <%= label_tag "Y -" %>
+  <%= text_field_tag :coordenadas_y %>
+  <%= label_tag "Z -" %>
+  <%= text_field_tag :coordenadas_z %>
 
   <label for="bateria">Bateria:</label>
   <%= text_field_tag :bateria %>
@@ -27,6 +30,8 @@
   <label for="tags">Tags:</label>
   <%= text_field_tag :tags %>
 
-  <%= submit_tag 'Filtrar' %>
+ <div class="actions">
+    <%= submit_tag 'Filtrar' %>
+  </div>
 <% end %>
 
