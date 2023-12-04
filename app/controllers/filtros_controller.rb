@@ -195,7 +195,6 @@ class FiltrosController < ApplicationController
                     break
                 end
 
-
                 #puts "O valor do indice s é: #{index_s}"
 
                 index_b = lista_de_testes_bateria.find_index do |lista|
@@ -204,41 +203,41 @@ class FiltrosController < ApplicationController
                     break
                 end
 
-                #puts "O valor do indice b é: #{index_b}"
+                
 
                 index_t = lista_de_testes_tags.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                     break
                 end
                 
-                #puts "O valor do indice t é: #{index_t}"
 
                 index_c = lista_de_testes_coordenadas.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                     break
                 end
 
-                #puts "O valor do indice c é: #{index_c}"
+                
+
+                
 
                 if @pegativos == "" || lista_habilitado_por_indice[index_a][0] == @pegativos
                     printar_no_final[contador][1] = lista_habilitado_por_indice[index_a][0]
-                    puts "aaaaa"
 
                     if @pegaStatus == ""|| lista_de_status[index_s][0] == @pegaStatus
                         printar_no_final[contador][2] = lista_de_status[index_s][0]
-                        puts "aaaaa"
+                        
                         if @pegaBateria == ""|| lista_de_baterias_por_indice[index_b][0] == @pegaBateria
                             printar_no_final[contador][3] = lista_de_baterias_por_indice[index_b][0]
-                            puts "aaaaa"
+                            
                             if @pegaTag == ""|| lista_de_tags_por_indice[index_t][0] == @pegaTag
                                 printar_no_final[contador][4] = lista_de_tags_por_indice[index_t][0]
-                                puts "aaaaa"
+                                
                                 if @pegaOx == ""|| lista_de_coordenadas_por_indice[index_c][0] == @pegaOx
                                     printar_no_final[contador][5] = lista_de_coordenadas_por_indice[index_c][0]
-                                    puts "aaaaa"
+                                    
                                     if @pegaOy == ""|| lista_de_coordenadas_por_indice[index_c][1] == @pegaOy
                                         printar_no_final[contador][6] = lista_de_coordenadas_por_indice[index_c][1]
-                                        puts "aaaaa"
+                                        
                                         if @pegaOz == ""|| lista_de_coordenadas_por_indice[index_c][2] == @pegaOz
                                             printar_no_final[contador][7] = lista_de_coordenadas_por_indice[index_c][2]
                                             contador += 1
