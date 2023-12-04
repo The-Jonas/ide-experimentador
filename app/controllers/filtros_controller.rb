@@ -58,7 +58,7 @@ class FiltrosController < ApplicationController
             ########## COMEÇO // ATIVOS ##########
 
             lista_de_testes_ativos = []
-            esta_desabilitado_list = []
+            lista_habilitado_por_indice = []
 
             @executions = Trial.all
             @executions.each do |trial|
@@ -70,7 +70,7 @@ class FiltrosController < ApplicationController
                     lista_de_testes_ativos << [nome_do_experimento, nome_do_teste]
                 end
 
-                esta_desabilitado_list << [esta_desabilitado]
+                lista_habilitado_por_indice << [esta_desabilitado]
             end
 
             ########## COMEÇO // TAGS ##########
@@ -169,15 +169,97 @@ class FiltrosController < ApplicationController
             @pegaTag = params[:tags]
         end
     
-        puts "Experimento rodando #{@selected_experimento} e a lista #{@todos_os_experimentos}"
-        puts "Status: #{@pegaStatus}, Ativo: #{@pegativo}, Bateria: #{@pegaBateria}, Tag: #{@pegaTag} e Coordenadas #{@pegaOx}, #{@pegaOy}, #{@pegaOz}"
+        #puts "Experimento rodando #{@selected_experimento} e a lista #{@todos_os_experimentos}"
+        #puts "Status: #{@pegaStatus}, Ativo: #{@pegativo}, Bateria: #{@pegaBateria}, Tag: #{@pegaTag} e Coordenadas #{@pegaOx}, #{@pegaOy}, #{@pegaOz}"
+
+        printar_no_final = []
+        contador = 0 
+
+        printar_no_final << ['Teste', 'Ativo', 'Status', 'Bateria', 'Tag', 'X', 'Y', 'Z']
+
+        puts "Lista_de_testes: #{printar_no_final}"
+
+        lista_de_testes_ativos.each do |ativo|
+    
+            if ativo[0] == @selected_experimento
+                printar_no_final[contador][0] = ativo[1]
+                nome_teste_atual = ativo[1]
+                index_a = lista_de_testes_ativos.find_index(ativo)
+                #puts "O valor do indice é: #{dabliu}"
+                #puts "Lista: #{lista_de_testes_ativos}"
+                
+
+                index_s = lista_de_testes_status.find_index do |lista|
+                    puts "#{lista[0]} #{lista[1]}"
+                    lista[0] == @selected_experimento && lista[1] == nome_teste_atual
+                    break
+                end
 
 
+                #puts "O valor do indice s é: #{index_s}"
 
+                index_b = lista_de_testes_bateria.find_index do |lista|
+                    puts "Passou pro proximo #{lista[0]} #{lista[1]}"
+                    lista[0] == @selected_experimento && lista[1] == nome_teste_atual
+                    break
+                end
 
+                #puts "O valor do indice b é: #{index_b}"
 
+                index_t = lista_de_testes_tags.find_index do |lista|
+                    lista[0] == @selected_experimento && lista[1] == nome_teste_atual
+                    break
+                end
+                
+                #puts "O valor do indice t é: #{index_t}"
 
+                index_c = lista_de_testes_coordenadas.find_index do |lista|
+                    lista[0] == @selected_experimento && lista[1] == nome_teste_atual
+                    break
+                end
 
+                #puts "O valor do indice c é: #{index_c}"
+
+                if @pegativos == "" || lista_habilitado_por_indice[index_a][0] == @pegativos
+                    printar_no_final[contador][1] = lista_habilitado_por_indice[index_a][0]
+                    puts "aaaaa"
+
+                    if @pegaStatus == ""|| lista_de_status[index_s][0] == @pegaStatus
+                        printar_no_final[contador][2] = lista_de_status[index_s][0]
+                        puts "aaaaa"
+                        if @pegaBateria == ""|| lista_de_baterias_por_indice[index_b][0] == @pegaBateria
+                            printar_no_final[contador][3] = lista_de_baterias_por_indice[index_b][0]
+                            puts "aaaaa"
+                            if @pegaTag == ""|| lista_de_tags_por_indice[index_t][0] == @pegaTag
+                                printar_no_final[contador][4] = lista_de_tags_por_indice[index_t][0]
+                                puts "aaaaa"
+                                if @pegaOx == ""|| lista_de_coordenadas_por_indice[index_c][0] == @pegaOx
+                                    printar_no_final[contador][5] = lista_de_coordenadas_por_indice[index_c][0]
+                                    puts "aaaaa"
+                                    if @pegaOy == ""|| lista_de_coordenadas_por_indice[index_c][1] == @pegaOy
+                                        printar_no_final[contador][6] = lista_de_coordenadas_por_indice[index_c][1]
+                                        puts "aaaaa"
+                                        if @pegaOz == ""|| lista_de_coordenadas_por_indice[index_c][2] == @pegaOz
+                                            printar_no_final[contador][7] = lista_de_coordenadas_por_indice[index_c][2]
+                                            contador += 1
+                                            printar_no_final << ['Teste', 'Ativo', 'Status', 'Bateria', 'Tag', 'X', 'Y', 'Z']
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+
+        if printar_no_final[contador][7] == 'Z'
+            printar_no_final.pop
+        end
+        printar_no_final.each do [teste]
+            puts "Teste: #{teste}"
+        end
+        puts "Lista_de_testes: #{printar_no_final}"
     end    
 end 
 

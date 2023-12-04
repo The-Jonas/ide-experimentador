@@ -5,7 +5,7 @@
 <%= form_tag(filtros_index_path, method: :get) do %>
   <div class="field">
     <%= label_tag :experimento, 'Selecione um experimento:' %>
-    <%= select_tag :experimento, options_for_select(@todos_os_experimentos) %>
+    <%= select_tag :experimento, options_for_select(@todos_os_experimentos), include_blank: true %>
   </div>
 
   <!-- Caixinhas para os inputs -->

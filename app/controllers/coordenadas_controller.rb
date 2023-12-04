@@ -54,7 +54,15 @@ end
 
 #[['Experimento 1','Teste 0'], ['Experimento 1','Teste 1']['Experimento 2','Teste 1']]
 #[['Louco', 'Rápido'],['Quebrado'],[]]
-#[['X = 1', 'Y = 2', 'Z = 3'], ['X = 2', 'Y = 1', 'Z = 0'], ['X = 2', 'Y = 1', 'Z = 0']]
+
+#[['Experimento 1','Teste 0'], ['Experimento 1','Teste 1']['Experimento 2','Teste 1']]
+#[['X = 1', 'Y = 2', ' = 3'Z], ['X = 2', 'Y = 1', 'Z = 0'], ['X = 2', 'Y = 1', 'Z = 0']]
+
+#[['Experimento 1','Teste 0'], ['Experimento 1','Teste 1']['Experimento 2','Teste 1']]
 #[['80%'], ['32%'], ['21%']]
-#[['Aprovado'], ['Em_execução'], '] ['Habil['Aprovado']]
-#[['Habilitado'], ['Desabilitadoitado']]
+
+#[['Experimento 1','Teste 0'], ['Experimento 1','Teste 1']['Experimento 2','Teste 1']]
+#[['Aprovado'], ['Em_execução'], ['Aprovado']]
+
+#[['Experimento 1','Teste 0'], ['Experimento 1','Teste 1']['Experimento 2','Teste 1']]
+#[['Habilitado'], ['Desabilitado'] ['Habilitado']]
