@@ -161,12 +161,17 @@ class FiltrosController < ApplicationController
             @pegaOx = params[:coordenadas_x]
             @pegaOy = params[:coordenadas_y]
             @pegaOz = params[:coordenadas_z]
-
+            @pegaBateria = params[:bateria]
+            @pegaTag = params[:tags]
             @pegaStatus = params[:status]
             @pegativo = params[:ativos]
 
-            @pegaBateria = params[:bateria]
-            @pegaTag = params[:tags]
+            if @pegativo == "Habilitado"
+                @pegativo = "false"
+            elsif @pegativo == 'Desabilitado'
+                @pegativo = "true"
+            end
+            
         end
     
         #puts "Experimento rodando #{@selected_experimento} e a lista #{@todos_os_experimentos}"
@@ -176,8 +181,6 @@ class FiltrosController < ApplicationController
         contador = 0 
 
         printar_no_final << ['Teste', 'Ativo', 'Status', 'Bateria', 'Tag', 'X', 'Y', 'Z']
-
-        puts "Lista_de_testes: #{printar_no_final}"
 
         lista_de_testes_ativos.each do |ativo|
     
@@ -190,34 +193,24 @@ class FiltrosController < ApplicationController
                 
 
                 index_s = lista_de_testes_status.find_index do |lista|
-                    puts "#{lista[0]} #{lista[1]}"
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                     break
                 end
-
-                #puts "O valor do indice s é: #{index_s}"
 
                 index_b = lista_de_testes_bateria.find_index do |lista|
-                    puts "Passou pro proximo #{lista[0]} #{lista[1]}"
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                     break
                 end
-
-                
 
                 index_t = lista_de_testes_tags.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                     break
                 end
                 
-
                 index_c = lista_de_testes_coordenadas.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                     break
                 end
-
-                
-
                 
 
                 if @pegativos == "" || lista_habilitado_por_indice[index_a][0] == @pegativos

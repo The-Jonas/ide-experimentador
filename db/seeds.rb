@@ -12,16 +12,17 @@ p 'Iniciando carregamento de dados'
 
 #Experimentos do Sistema
 
-experimento = Experiment.create(id: 1, name: 'Experimento9', disabled: false)
-experimento = Experiment.create(id: 2, name: 'Experimento5', disabled: false)
+experimento = Experiment.create(id: 1, name: 'Experimento 9', disabled: false)
+experimento = Experiment.create(id: 2, name: 'Experimento 5', disabled: false)
+experimento = Experiment.create(id: 3, name: 'Experimento 2', disabled: false)
 
 #Testes do sistema
 
 trial = Trial.create(id: 1, name: 'Teste 1', disabled: false, deleted: false, runs: 10, experiment: Experiment.find(1))
-trial = Trial.create(id: 2, name: 'Teste 2', disabled: false, deleted: false, runs: 49, experiment: Experiment.find(1))
+trial = Trial.create(id: 2, name: 'Teste 2', disabled: false, deleted: false, runs: 49, experiment: Experiment.find(3))
 trial = Trial.create(id: 3, name: 'Teste 1', disabled: false, deleted: false, runs: 82, experiment: Experiment.find(2))
 trial = Trial.create(id: 4, name: 'Teste 4', disabled: false, deleted: false, runs: 49, experiment: Experiment.find(1))
-trial = Trial.create(id: 5, name: 'Teste 5', disabled: false, deleted: false, runs: 49, experiment: Experiment.find(1))
+trial = Trial.create(id: 5, name: 'Teste 5', disabled: false, deleted: false, runs: 49, experiment: Experiment.find(3))
 trial = Trial.create(id: 6, name: 'Teste 9', disabled: false, deleted: false, runs: 98, experiment: Experiment.find(2))
 
 #Coordenadas no sistema 
@@ -71,11 +72,26 @@ trial_factor = TrialFactor.create(factor: Factor.find(1), trial: Trial.find(3))
 trial_factor = TrialFactor.create(factor: Factor.find(5), trial: Trial.find(3)) #Experimento 2, Teste 1
 trial_factor = TrialFactor.create(factor: Factor.find(3), trial: Trial.find(3))
 
+trial_factor = TrialFactor.create(factor: Factor.find(1), trial: Trial.find(4))
+trial_factor = TrialFactor.create(factor: Factor.find(2), trial: Trial.find(4)) #Experimento 1, Teste 1
+trial_factor = TrialFactor.create(factor: Factor.find(3), trial: Trial.find(4))
+
+trial_factor = TrialFactor.create(factor: Factor.find(1), trial: Trial.find(5))
+trial_factor = TrialFactor.create(factor: Factor.find(2), trial: Trial.find(5)) #Experimento 1, Teste 1
+trial_factor = TrialFactor.create(factor: Factor.find(3), trial: Trial.find(5))
+
+trial_factor = TrialFactor.create(factor: Factor.find(1), trial: Trial.find(6))
+trial_factor = TrialFactor.create(factor: Factor.find(2), trial: Trial.find(6)) #Experimento 1, Teste 1
+trial_factor = TrialFactor.create(factor: Factor.find(3), trial: Trial.find(6))
+
 #Ligar Baterias aos testes
 
 trial_factor = TrialFactor.create(factor: Factor.find(7), trial: Trial.find(1))
 trial_factor = TrialFactor.create(factor: Factor.find(8), trial: Trial.find(2)) 
 trial_factor = TrialFactor.create(factor: Factor.find(9), trial: Trial.find(3))
+trial_factor = TrialFactor.create(factor: Factor.find(7), trial: Trial.find(4))
+trial_factor = TrialFactor.create(factor: Factor.find(8), trial: Trial.find(5)) 
+trial_factor = TrialFactor.create(factor: Factor.find(9), trial: Trial.find(6))
 
 #Ligar Status aos Testes
 
