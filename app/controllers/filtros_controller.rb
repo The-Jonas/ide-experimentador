@@ -211,7 +211,7 @@ class FiltrosController < ApplicationController
                         if @pegaBateria == ""|| lista_de_baterias_por_indice[index_b][0] == @pegaBateria
                             @printar_no_final[contador][3] = lista_de_baterias_por_indice[index_b][0]
                             
-                            if @pegaTag == ""|| lista_de_tags_por_indice[index_t][0] == @pegaTag
+                            if @pegaTag == ""|| lista_de_tags_por_indice[index_t].include?(@pegaTag)
                                 @printar_no_final[contador][4] = lista_de_tags_por_indice[index_t]
                                 
                                 if @pegaOx == ""|| lista_de_coordenadas_por_indice[index_c][0] == @pegaOx
@@ -241,5 +241,6 @@ class FiltrosController < ApplicationController
             puts "Teste: #{caixinha}"
         end
         puts "Lista_de_testes: #{@printar_no_final}"
+        puts "Tag procurada: #{@pegaTag}"
     end
 end

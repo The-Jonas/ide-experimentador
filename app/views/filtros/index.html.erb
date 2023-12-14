@@ -1,4 +1,4 @@
-<h2>Filtragem</h2>
+<h2>Filtros</h2>
 
 <!-- Seleciona o experimento -->
 
@@ -28,7 +28,14 @@
   <%= text_field_tag :bateria %>
 
   <label for="tags">Tags:</label>
-  <%= text_field_tag :tags %>
+  <%= text_field_tag :tags, nil, placeholder: "Digite ou selecione uma tag", list: "todas_as_tags" %>
+
+  <!-- Lista de todas as tags -->
+  <datalist id="todas_as_tags">
+    <% @lista_de_nomes_das_tags.each do |tag| %>
+      <option value="<%= tag %>">
+    <% end %>
+  </datalist>
 
  <div class="actions">
     <%= submit_tag 'Filtrar' %>
