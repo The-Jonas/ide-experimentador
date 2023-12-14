@@ -173,9 +173,6 @@ class FiltrosController < ApplicationController
             end
             
         end
-    
-        #puts "Experimento rodando #{@selected_experimento} e a lista #{@todos_os_experimentos}"
-        #puts "Status: #{@pegaStatus}, Ativo: #{@pegativo}, Bateria: #{@pegaBateria}, Tag: #{@pegaTag} e Coordenadas #{@pegaOx}, #{@pegaOy}, #{@pegaOz}"
 
         @printar_no_final = []
         contador = 0 
@@ -188,10 +185,7 @@ class FiltrosController < ApplicationController
                 @printar_no_final[contador][0] = ativo[1]
                 nome_teste_atual = ativo[1]
                 index_a = lista_de_testes_ativos.find_index(ativo)
-                #puts "O valor do indice é: #{dabliu}"
-                #puts "Lista: #{lista_de_testes_ativos}"
                 
-
                 index_s = lista_de_testes_status.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                 end
@@ -207,14 +201,8 @@ class FiltrosController < ApplicationController
                 index_c = lista_de_testes_coordenadas.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                 end
-
-                puts "Esse é o #{nome_teste_atual} do #{@selected_experimento}"
-                puts "lista de ativos #{lista_habilitado_por_indice}"
-                puts "lista de tags #{lista_de_tags_por_indice}"
                 
-
-
-                if @pegativo.nil? || @pegativo == "" || lista_habilitado_por_indice[index_a][0] == @pegativo
+                if @pegativo == "" || lista_habilitado_por_indice[index_a][0] == @pegativo
                     @printar_no_final[contador][1] = lista_habilitado_por_indice[index_a][0]
 
                     if @pegaStatus.to_s == ""|| lista_de_status[index_s][0] == @pegaStatus
