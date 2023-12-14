@@ -58,9 +58,9 @@ classificacao = Classification.create(id: 1, trial: Trial.find(1), tag: Tag.find
 classificacao = Classification.create(id: 2, trial: Trial.find(2), tag: Tag.find(2))
 classificacao = Classification.create(id: 3, trial: Trial.find(2), tag: Tag.find(3))
 classificacao = Classification.create(id: 4, trial: Trial.find(2), tag: Tag.find(4))
-classificacao = Classification.create(id: 5, trial: Trial.find(2), tag: Tag.find(6))
-classificacao = Classification.create(id: 6, trial: Trial.find(1), tag: Tag.find(3))
-classificacao = Classification.create(id: 7, trial: Trial.find(1), tag: Tag.find(5))
+classificacao = Classification.create(id: 5, trial: Trial.find(1), tag: Tag.find(6))
+classificacao = Classification.create(id: 6, trial: Trial.find(7), tag: Tag.find(3))
+classificacao = Classification.create(id: 7, trial: Trial.find(7), tag: Tag.find(5))
 
 
 #Ligar Coordenadas aos testes

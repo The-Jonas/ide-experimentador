@@ -35,49 +35,50 @@
   </div>
 <% end %>
 
-<h3>Informações</h3>
 
+<% if params[:commit] == 'Filtrar' %>
+  <h3>Resultados</h3>
 
-<% if !@printar_no_final.empty?%>
+  <% if !@printar_no_final.empty?%>
 
-  <div class="row">
-    <% @printar_no_final.each do |item| %>
-      <div class="col-md-3 mb-3">
-        <div class="card">
-          <div class="card-body">
-            <h4> <%= item[0] %> </h4>
-            <% if item[1] == false %>
-              <%= "Habilitado" %>
-            <% else %>
-              <%= "Desabilitado" %>
-            <% end %>
-            <div>
-              <%= "Coordenadas: X - #{item[5]} | Y - #{item[6]} | Z - #{item[7]}"%>
-            </div>
-            <div>
-              <%= "Status: #{item[2]}" %>
-            </div>
-            <div>
-              <%= "Bateria: #{item[3]}" %>
-            </div>
-            <div>
-              <%= "Tags:"%>
-              <%if !(item[4] == [""]) %>
-                <% item[4].each_with_index do |tag, index| %>
-                  <%= "#{tag}" %>
-                  <%= "," unless index == item[4].size - 1 %>
-                <% end %>
-              <%else%>
-                <%= "Nenhuma Tag Registrada" %>
+    <div class="row">
+      <% @printar_no_final.each do |item| %>
+        <div class="col-md-3 mb-3">
+          <div class="card">
+            <div class="card-body">
+              <h4> <%= item[0] %> </h4>
+              <% if item[1] == false %>
+                <%= "Habilitado" %>
+              <% else %>
+                <%= "Desabilitado" %>
               <% end %>
+              <div>
+                <%= "Coordenadas: X - #{item[5]} | Y - #{item[6]} | Z - #{item[7]}"%>
+              </div>
+              <div>
+                <%= "Status: #{item[2]}" %>
             </div>
-          
+              <div>
+                <%= "Bateria: #{item[3]}" %>
+              </div>
+              <div>
+                <%= "Tags:"%>
+                <%if !(item[4] == [""]) %>
+                  <% item[4].each_with_index do |tag, index| %>
+                    <%= "#{tag}" %>
+                    <%= "," unless index == item[4].size - 1 %>
+                  <% end %>
+                <%else%>
+                  <%= "Nenhuma Tag Registrada" %>
+                <% end %>
+              </div>
+            
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-<%else%>
-  <%= "Não há testes registrados para esse experimento"%>
+      <% end %>
+    </div>
+  <%else%>
+    <%= "Não há testes registrados com as informações solicitadas"%>
+  <%end%>
 <%end%>
-
