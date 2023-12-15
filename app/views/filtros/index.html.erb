@@ -11,24 +11,24 @@
   <!-- Caixinhas para os inputs -->
 
   <label for="status">Status:</label>
-  <%= select_tag :status, options_for_select(["aprovado", "reprovado", "em_execucao", "parcialmente_aprovado"]), include_blank: true %>
+  <%= select_tag :status, options_for_select(["aprovado", "reprovado", "em execuçao", "parcialmente aprovado"]), include_blank: true %>
 
   <label for="ativos">Ativos:</label>
   <%= select_tag :ativos, options_for_select(["Habilitado", "Desabilitado"]), include_blank: true %>
-
+  
   <label for="coordenadas">Coordenadas:</label>
   <%= label_tag "X -" %>
-  <%= text_field_tag :coordenadas_x %>
+  <%= text_field_tag :coordenadas_x, nil, size:2 %>
   <%= label_tag "Y -" %>
-  <%= text_field_tag :coordenadas_y %>
+  <%= text_field_tag :coordenadas_y, nil, size:2 %>
   <%= label_tag "Z -" %>
-  <%= text_field_tag :coordenadas_z %>
+  <%= text_field_tag :coordenadas_z, nil, size:2 %>
 
   <label for="bateria">Bateria:</label>
-  <%= text_field_tag :bateria %>
+  <%= text_field_tag :bateria, nil, placeholder: "Digite com a porcentagem" %>
 
   <label for="tags">Tags:</label>
-  <%= text_field_tag :tags, nil, placeholder: "Digite ou selecione uma tag", list: "todas_as_tags" %>
+  <%= text_field_tag :tags, nil, placeholder: "Digite ou selecione uma tag", list: "todas_as_tags", size: 22 %>
 
   <!-- Lista de todas as tags -->
   <datalist id="todas_as_tags">
@@ -37,7 +37,7 @@
     <% end %>
   </datalist>
 
- <div class="actions">
+  <div class="actions">
     <%= submit_tag 'Filtrar' %>
   </div>
 <% end %>
