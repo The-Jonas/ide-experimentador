@@ -3,6 +3,16 @@ class FiltrosController < ApplicationController
     def index
         testes = Trial.all
 
+
+#Para cada tipo de filtro organiza-se por index uma lista para o determinado filtro e o Experimento e teste que ele se refere
+
+# Um exemplo é o filtro de Tags, ele retornaria duas listas como essas:
+# [["Experimento 1", "Teste 3"], ["Experimento 1", "Teste 5"], ["Experimento 5", "Teste 3"]]
+# E seguindo o indice dessa lista, haveria outra com as coordenadas ligadas a cada Experimento/Teste, como exemplo:
+# [["Louco", "Rápido"], ["Quebrado", "Duvidoso"], [""]]
+
+# Esses dados vão para a seção "Manipulação de dados, onde são organizados e printados na tela seguindo o input do usuário"
+
         ########## COMEÇO // BATERIA ##########
 
         if testes.any?
@@ -73,6 +83,8 @@ class FiltrosController < ApplicationController
                 lista_habilitado_por_indice << [esta_desabilitado]
             end
 
+            ########## FIM // ATIVOS ##########
+
             ########## COMEÇO // TAGS ##########
 
             @classificacoes = Classification.all
@@ -140,19 +152,17 @@ class FiltrosController < ApplicationController
                 if nome_do_fator == 'X'
                     lista_de_coordenadas_por_indice[index][0] = valor_do_fator
                 elsif nome_do_fator == 'Y'
-                    lista_de_coordenadas_por_indice[index][1] = valor_do_fator
+                    lista_de_coordenadas_por_indice[index][1] = valor_do_fator   #Computa os valores para coordenadas
                 elsif nome_do_fator == 'Z'
                     lista_de_coordenadas_por_indice[index][2] = valor_do_fator
                 end
             end
 
             ########### FIM // COORDENADAS ###########
-        else
-            puts "Não há testes registrados"
         end
 
     #---------------------------------------------------------------------------------------------------#
-    #                                     Manipulação de Dados
+    #                                     Manipulação de Dados                                          #
         
         @todos_os_experimentos = Experiment.distinct.pluck(:name)
 
@@ -177,7 +187,7 @@ class FiltrosController < ApplicationController
         @printar_no_final = []                                #Lista com todos os testes que passaram nos filtros
         contador = 0                                          #Contador para inserção de dados nos índices corretos
 
-        @printar_no_final << ['Teste', 'Ativo', 'Status', 'Bateria', 'Tag', 'X', 'Y', 'Z']
+        @printar_no_final << ['Teste', 'Ativo', 'Status', 'Bateria', 'Tag', 'X', 'Y', 'Z'] #Bloco de teste 
 
         lista_de_testes_ativos.each do |ativo|
     
@@ -205,7 +215,7 @@ class FiltrosController < ApplicationController
                 if @pegativo.blank?  || lista_habilitado_por_indice[index_a][0] == @pegativo
                     @printar_no_final[contador][1] = lista_habilitado_por_indice[index_a][0]
 
-                    if @pegaStatus.to_s.blank? || lista_de_status[index_s][0] == @pegaStatus
+                    if @pegaStatus.blank? || lista_de_status[index_s][0] == @pegaStatus
                         @printar_no_final[contador][2] = lista_de_status[index_s][0]
 
                         if @pegaBateria.blank? || lista_de_baterias_por_indice[index_b][0] == @pegaBateria
@@ -235,10 +245,7 @@ class FiltrosController < ApplicationController
         end
 
         if @printar_no_final[contador][7] == 'Z'
-            @printar_no_final.pop                   #Se o último teste montado não bater com os filtros, delete ele
+            @printar_no_final.pop                #Se o último teste montado não bater com os filtros, delete ele
         end
-
-        puts "Lista_de_testes: #{@printar_no_final}"
-        puts "Teste input: #{@selected_experimento}"
     end
 end

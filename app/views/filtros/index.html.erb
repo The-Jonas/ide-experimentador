@@ -1,41 +1,53 @@
 <h2>Filtros</h2>
 
+ <!-- <%= stylesheet_link_tag 'filtro' %> -->
+
 <!-- Seleciona o experimento -->
 
-<%= form_tag(filtros_index_path, method: :get) do %>
-  <div class="field">
+<%= form_tag(filtros_index_path, method: :get, id: 'filtros') do %>
+  <div class="experimento">
     <%= label_tag :experimento, 'Selecione um experimento:' %>
     <%= select_tag :experimento, options_for_select(@todos_os_experimentos), include_blank: true %>
   </div>
 
   <!-- Caixinhas para os inputs -->
 
-  <label for="status">Status:</label>
-  <%= select_tag :status, options_for_select(["aprovado", "reprovado", "em execuçao", "parcialmente aprovado"]), include_blank: true %>
+  <div class="status">
+    <label for="status">Status:</label>
+    <%= select_tag :status, options_for_select(["aprovado", "reprovado", "em execuçao", "parcialmente aprovado"]), include_blank: true %>
+  </div>
 
-  <label for="ativos">Ativos:</label>
-  <%= select_tag :ativos, options_for_select(["Habilitado", "Desabilitado"]), include_blank: true %>
-  
-  <label for="coordenadas">Coordenadas:</label>
-  <%= label_tag "X -" %>
-  <%= text_field_tag :coordenadas_x, nil, size:2 %>
-  <%= label_tag "Y -" %>
-  <%= text_field_tag :coordenadas_y, nil, size:2 %>
-  <%= label_tag "Z -" %>
-  <%= text_field_tag :coordenadas_z, nil, size:2 %>
+  <div class="ativos">
+    <label for="ativos">Ativos:</label>
+    <%= select_tag :ativos, options_for_select(["Habilitado", "Desabilitado"]), include_blank: true %>
+  </div>
 
-  <label for="bateria">Bateria:</label>
-  <%= text_field_tag :bateria, nil, placeholder: "Digite com a porcentagem" %>
+  <div class="coordenadas">
+    <label for="coordenadas">Coordenadas:</label>
+    <%= label_tag "X -" %>
+    <%= text_field_tag :coordenadas_x, nil, size:2 %>
+    <%= label_tag "Y -" %>
+    <%= text_field_tag :coordenadas_y, nil, size:2 %>
+    <%= label_tag "Z -" %>
+    <%= text_field_tag :coordenadas_z, nil, size:2 %>
+  </div>
 
-  <label for="tags">Tags:</label>
-  <%= text_field_tag :tags, nil, placeholder: "Digite ou selecione uma tag", list: "todas_as_tags", size: 22 %>
+  <div class="bateria">
+    <label for="bateria">Bateria:</label>
+    <%= text_field_tag :bateria, nil, placeholder: "Digite com a porcentagem" %>
+  </div>
 
-  <!-- Lista de todas as tags -->
-  <datalist id="todas_as_tags">
-    <% @lista_de_nomes_das_tags.each do |tag| %>
-      <option value="<%= tag %>">
-    <% end %>
-  </datalist>
+  <div class="tags">
+    <label for="tags">Tags:</label>
+    <%= text_field_tag :tags, nil, placeholder: "Digite ou selecione uma tag", list: "todas_as_tags", size: 22 %>
+
+    <!-- Lista de todas as tags -->
+    <datalist id="todas_as_tags">
+      <% @lista_de_nomes_das_tags.each do |tag| %>
+        <option value="<%= tag %>">
+      <% end %>
+    </datalist>
+  </div>
 
   <div class="actions">
     <%= submit_tag 'Filtrar' %>
@@ -60,7 +72,7 @@
                 <%= "Desabilitado" %>
               <% end %>
               <div>
-                <%= "Coordenadas: X - #{item[5]} | Y - #{item[6]} | Z - #{item[7]}"%>
+                <%= " Coordenadas: X - #{item[5]} | Y - #{item[6]} | Z - #{item[7]}"%>
               </div>
               <div>
                 <%= "Status: #{item[2]}" %>
