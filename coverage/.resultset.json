@@ -1,0 +1,406 @@
+{
+  "Minitest": {
+    "coverage": {
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/models/tag.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/models/classification.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/models/factor.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/models/trial_execution.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/models/trial.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/models/experiment.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/models/trial_factor.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/models/user.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/controllers/hello_controller.rb": {
+        "lines": [
+          1,
+          1,
+          0,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/helpers/hello_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/jobs/application_job.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/controllers/filtros_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/channels/application_cable/channel.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/home/gabs/Documents/TrabalhoEngenhocas/sprint3/ide-experimentador/app/channels/application_cable/connection.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      }
+    },
+    "timestamp": 1702690082
+  }
+}
