@@ -199,11 +199,11 @@ class FiltrosController < ApplicationController
                 index_s = lista_de_testes_status.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                 end
-
+                
                 index_b = lista_de_testes_bateria.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                 end
-
+                
                 index_t = lista_de_testes_tags.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                 end
@@ -211,8 +211,8 @@ class FiltrosController < ApplicationController
                 index_c = lista_de_testes_coordenadas.find_index do |lista|
                     lista[0] == @selected_experimento && lista[1] == nome_teste_atual
                 end
-                
-                if @pegativo.blank?  || lista_habilitado_por_indice[index_a][0] == @pegativo
+
+                if @pegativo == ""  || lista_habilitado_por_indice[index_a][0] == @pegativo
                     @printar_no_final[contador][1] = lista_habilitado_por_indice[index_a][0]
 
                     if @pegaStatus.blank? || lista_de_status[index_s][0] == @pegaStatus
@@ -247,5 +247,7 @@ class FiltrosController < ApplicationController
         if @printar_no_final[contador][7] == 'Z'
             @printar_no_final.pop                #Se o último teste montado não bater com os filtros, delete ele
         end
+
+        
     end
 end

@@ -18,7 +18,6 @@ experimento = Experiment.create(id: 3, name: 'Experimento 5', disabled: false)
 experimento = Experiment.create(id: 4, name: 'Experimento 8', disabled: true)
 experimento = Experiment.create(id: 5, name: 'Experimento 9', disabled: true)
 
-
 #Testes do sistema
 
 trial = Trial.create(id: 1, name: 'Teste 1', disabled: false, deleted: false, runs: 10, experiment: Experiment.find(1))
