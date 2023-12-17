@@ -1,40 +1,37 @@
-# README
+## Projeto da matéria de Engenharia de Software da Univerisade de Brasília (UnB)
+### **Issue 11: Dado que sou um usuario, quero poder filtrar testes por tags.**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Alunos:
+- Daniel
+- Gabriel de Castro Dias
+- Joao Victor Pereira Vieira
+- Luiz Henrique Silva de Andrade
+- Sofia Dy La Fuente Monteiro
 
-Things you may want to cover:
 
-* Ruby version
+# Setup
 
-    2.7.5
+- Requisítos
+    - Ruby na versão 2.7.5
+    - Rails
+    - Bun
+ 
+### Caso você não tenha algum deles instalado, você pode seguir o tutorial de instalação no site oficial
+- [Ruby](https://www.ruby-lang.org/)
+- [Rails](https://rubyonrails.org/)
+- [Bun](https://bun.sh/) - Observação: Se você estiver no Windows será necessário rodar o Bun através do WSL
 
-* System dependencies
 
-    Gem bundle
-    Gem rails
-    Bun
+### Comandos necessários para configurar o projeto
+     'bundle install'
+     'rails db:migrate'
+     'rails db:seed'
+     'rails assets:precompile'
 
-* Configuration
+### Criar o servidor
+    'rails server'
 
-    run "bundle install"
-    run "rails assets:precompile"
+### Rodar testes
+    'rails test'
+    
 
-* Database creation
-
-    Add in "db -> seeds.rb"
-
-* Database initialization
-
-    run "rails db:seed"
-    run "rails db:migrate
-
-* How to run the test suite
-
-    run "rails s" or "rails server" for initialize server
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
