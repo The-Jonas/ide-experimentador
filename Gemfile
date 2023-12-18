@@ -2,15 +2,6 @@ source "https://rubygems.org"
 
 ruby "2.7.5"
 
-
-# Saikuro
-
-
-
-#
-
-
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1.1"
 
@@ -59,16 +50,6 @@ group :development, :test do
 end
 
 group :development do
-
-  # ABC Score
-  gem "rubycritic", require: false
-
-  # Complexidade Ciclomática
-  gem "saikuro", require: false
-
-  # Cobertura dos testes (RSpec)
-  gem "simplecov", require: false, group: :test
-
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -81,6 +62,9 @@ group :development do
 end
 
 group :test do
+  gem 'cucumber-rails'
+  gem 'capybara-screenshot'
+  gem 'database_cleaner'
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
