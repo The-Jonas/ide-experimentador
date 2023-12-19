@@ -14,6 +14,7 @@ Contexto:
     Então eu devo ver os campos de filtro 'tag','coordenadas', 'bateria', ‘status’ e ‘ativo’
 
 
+@javascript
 Cenário: Um usuário pesquisa por um teste utilizando somente uma tag (feliz)
 
     Dado que tenha um ou mais testes com a tag 'Rápido' cadastrado,
@@ -22,7 +23,7 @@ Cenário: Um usuário pesquisa por um teste utilizando somente uma tag (feliz)
     E eu clicar no botão 'Pesquisar',
     Então eu devo ver todos os testes com a tag 'Rápido' cadastrados.
 
-
+@javascript
 Cenário: Um usuário pesquisa por um teste utilizando somente as coordenadas (feliz) 
 
     Dado que tenha um ou mais testes com as coordenadas "X=0 Y=1 Z=0" cadastrados,
@@ -32,6 +33,7 @@ Cenário: Um usuário pesquisa por um teste utilizando somente as coordenadas (f
     Então eu devo ver todos os testes com as coordenadas 'X=0 Y=1 Z=0' cadastrados.
 
 
+@javascript
 Cenário: Um usuário pesquisa por um teste utilizando somente a bateria (feliz) 
 
     Dado que tenha um ou mais testes com robôs que possuem bateria igual a '70%',
@@ -41,6 +43,7 @@ Cenário: Um usuário pesquisa por um teste utilizando somente a bateria (feliz)
     E clicar no botão 'Pesquisar',
     Então eu devo ver todos os testes em que o robô possui a bateria igual a '70%'.
 
+@javascript
 Cenário: Um usuário pesquisa por um teste utilizando o filtro "Ativo" (feliz) 
 
     Dado que tenha pelo menos um teste cadastrado no experimento,
@@ -50,6 +53,7 @@ Cenário: Um usuário pesquisa por um teste utilizando o filtro "Ativo" (feliz)
     Então eu devo ver todos os testes que foram desabilitados no experimento.
 
 
+@javascript
 Cenário: Um usuário pesquisa por um teste utilizando somente o filtro ‘status’ (feliz) 
 
     Dado que exista um ou mais testes cadastrados no experimento,
@@ -58,6 +62,7 @@ Cenário: Um usuário pesquisa por um teste utilizando somente o filtro ‘statu
     Então eu devo ver todos os testes que foram concluídos sem nenhum erro.
 
 
+@javascript
 Cenário: Usuário pesquisa por um teste utilizando somente a bateria (triste) 
 
 	Dado que exista um ou mais testes cadastrados no experimento,
@@ -68,6 +73,7 @@ Cenário: Usuário pesquisa por um teste utilizando somente a bateria (triste)
 	Então devo ver uma mensagem de aviso, indicando que o número inteiro inserido precisa estar limitado ao intervalo de 0 a 100.
 
 
+@javascript
 Cenário: Um usuário pesquisa por um teste utilizando um ou mais campos dos filtros (triste) 
 
     Dado que não tenha nenhum teste com esse/s 'filtro/s' cadastrado/s,

@@ -4,6 +4,7 @@ Eu como usuário
 Quero filtrar os testes por tags, coordenadas, porcentagem da bateria, status ou ativo
 A fim de obter somente os testes relacionados aos filtro selecionados com maior velocidade
 
+@javascript
 Cenário: Um Usuário pesquisa por um teste utilizando mais de um filtro (feliz) 
 
     Dado que tenha pelo menos um teste cadastrado no experimento,
@@ -17,6 +18,7 @@ Cenário: Um Usuário pesquisa por um teste utilizando mais de um filtro (feliz)
     E clicar no botão ‘Pesquisar’,
     Então devo ver todos os testes que tenham a tag ‘Ciência’ quanto os testes com a bateria em ‘92%’.
 
+@javascript
 Cenário: Um usuário pesquisa por um teste utilizando um ou mais campos dos filtros (triste) 
 
     Dado que não tenha nenhum teste com esse/s 'filtro/s' cadastrado/s,
