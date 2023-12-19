@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import CaixasDeDados from './Caixas_de_Dados';
 
-function FiltrosComponent() {
+const FiltrosComponent = () => {
   return (
-    
-    <h1> Teste de titulo </h1>
-     
+    <div>""
+      <CaixasDeDados/>
+    </div>
   );
 };
 
