@@ -139,14 +139,7 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
-<<<<<<< HEAD
     diff-lcs (1.5.0)
-=======
-    descendants_tracker (0.0.4)
-      thread_safe (~> 0.3, >= 0.3.1)
-    diff-lcs (1.5.0)
-    docile (1.4.0)
->>>>>>> 00eb2eb (Testes do RSpec)
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
@@ -329,12 +322,7 @@ DEPENDENCIES
   jsbundling-rails
   puma (>= 5.0)
   rails (~> 7.1.1)
-<<<<<<< HEAD
-=======
   rspec-rails
-  rubycritic
-  saikuro
->>>>>>> 00eb2eb (Testes do RSpec)
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)
@@ -348,4 +336,4 @@ RUBY VERSION
    ruby 2.7.5p203
 
 BUNDLED WITH
-   2.4.22
+   2.2.3
