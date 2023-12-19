@@ -172,7 +172,7 @@ class FiltrosController < ApplicationController
             @pegaOy = params[:coordenadas_y]                  #Input das coordenadas
             @pegaOz = params[:coordenadas_z]
             @pegaBateria = params[:bateria]                   #Input da Bateria
-            @pegaTag = params[:tags]                          #Input da Tag
+            @pegaTag = params[:tags].titleize                 #Input da Tag
             @pegaStatus = params[:status]                     #Input do Status
             @pegativo = params[:ativos]                       #Input do Ativo
 
@@ -181,59 +181,63 @@ class FiltrosController < ApplicationController
             elsif @pegativo == 'Desabilitado'                 #Trocar valores para manipulação do Backend
                 @pegativo = true
             end
-            
         end
 
-        @printar_no_final = []                                #Lista com todos os testes que passaram nos filtros
-        contador = 0                                          #Contador para inserção de dados nos índices corretos
+        @nao_carregou_o_banco_de_dados = false
+        @printar_no_final = []                            #Lista com todos os testes que passaram nos filtros
 
-        @printar_no_final << ['Teste', 'Ativo', 'Status', 'Bateria', 'Tag', 'X', 'Y', 'Z'] #Bloco de teste 
+        if !lista_de_testes_ativos.empty?
 
-        lista_de_testes_ativos.each do |ativo|
+            contador = 0                                      #Contador para inserção de dados nos índices corretos
+
+            @printar_no_final << ['Teste', 'Ativo', 'Status', 'Bateria', 'Tag', 'X', 'Y', 'Z'] #Bloco de teste 
+
+            lista_de_testes_ativos.each do |ativo|
     
-            if ativo[0] == @selected_experimento
-                @printar_no_final[contador][0] = ativo[1]
-                nome_teste_atual = ativo[1]
-                index_a = lista_de_testes_ativos.find_index(ativo)
+                if ativo[0] == @selected_experimento
+                    @printar_no_final[contador][0] = ativo[1]
+                    nome_teste_atual = ativo[1]
+                    index_a = lista_de_testes_ativos.find_index(ativo)
                 
-                index_s = lista_de_testes_status.find_index do |lista|
-                    lista[0] == @selected_experimento && lista[1] == nome_teste_atual
-                end
+                    index_s = lista_de_testes_status.find_index do |lista|
+                        lista[0] == @selected_experimento && lista[1] == nome_teste_atual
+                    end
                 
-                index_b = lista_de_testes_bateria.find_index do |lista|
-                    lista[0] == @selected_experimento && lista[1] == nome_teste_atual
-                end
+                    index_b = lista_de_testes_bateria.find_index do |lista|
+                        lista[0] == @selected_experimento && lista[1] == nome_teste_atual
+                    end
                 
-                index_t = lista_de_testes_tags.find_index do |lista|
-                    lista[0] == @selected_experimento && lista[1] == nome_teste_atual
-                end
+                    index_t = lista_de_testes_tags.find_index do |lista|
+                        lista[0] == @selected_experimento && lista[1] == nome_teste_atual
+                    end
                 
-                index_c = lista_de_testes_coordenadas.find_index do |lista|
-                    lista[0] == @selected_experimento && lista[1] == nome_teste_atual
-                end
+                    index_c = lista_de_testes_coordenadas.find_index do |lista|
+                        lista[0] == @selected_experimento && lista[1] == nome_teste_atual
+                    end
 
-                if @pegativo == ""  || lista_habilitado_por_indice[index_a][0] == @pegativo
-                    @printar_no_final[contador][1] = lista_habilitado_por_indice[index_a][0]
+                    if @pegativo == ""  || lista_habilitado_por_indice[index_a][0] == @pegativo
+                        @printar_no_final[contador][1] = lista_habilitado_por_indice[index_a][0]
 
-                    if @pegaStatus.blank? || lista_de_status[index_s][0] == @pegaStatus
-                        @printar_no_final[contador][2] = lista_de_status[index_s][0]
+                        if @pegaStatus.blank? || lista_de_status[index_s][0] == @pegaStatus
+                            @printar_no_final[contador][2] = lista_de_status[index_s][0]
 
-                        if @pegaBateria.blank? || lista_de_baterias_por_indice[index_b][0] == @pegaBateria
-                            @printar_no_final[contador][3] = lista_de_baterias_por_indice[index_b][0]
+                            if @pegaBateria.blank? || lista_de_baterias_por_indice[index_b][0] == @pegaBateria
+                                @printar_no_final[contador][3] = lista_de_baterias_por_indice[index_b][0]
                             
-                            if @pegaTag.blank? || lista_de_tags_por_indice[index_t].include?(@pegaTag)
-                                @printar_no_final[contador][4] = lista_de_tags_por_indice[index_t]
+                                if @pegaTag.blank? || lista_de_tags_por_indice[index_t].include?(@pegaTag)
+                                    @printar_no_final[contador][4] = lista_de_tags_por_indice[index_t]
                                 
-                                if @pegaOx.blank? || lista_de_coordenadas_por_indice[index_c][0] == @pegaOx
-                                    @printar_no_final[contador][5] = lista_de_coordenadas_por_indice[index_c][0]
+                                    if @pegaOx.blank? || lista_de_coordenadas_por_indice[index_c][0] == @pegaOx
+                                        @printar_no_final[contador][5] = lista_de_coordenadas_por_indice[index_c][0]
                                     
-                                    if @pegaOy.blank? || lista_de_coordenadas_por_indice[index_c][1] == @pegaOy
-                                        @printar_no_final[contador][6] = lista_de_coordenadas_por_indice[index_c][1]
+                                        if @pegaOy.blank? || lista_de_coordenadas_por_indice[index_c][1] == @pegaOy
+                                            @printar_no_final[contador][6] = lista_de_coordenadas_por_indice[index_c][1]
                                         
-                                        if @pegaOz.blank? || lista_de_coordenadas_por_indice[index_c][2] == @pegaOz
-                                            @printar_no_final[contador][7] = lista_de_coordenadas_por_indice[index_c][2]
-                                            contador += 1
-                                            @printar_no_final << ['Teste', 'Ativo', 'Status', 'Bateria', 'Tag', 'X', 'Y', 'Z']
+                                            if @pegaOz.blank? || lista_de_coordenadas_por_indice[index_c][2] == @pegaOz
+                                                @printar_no_final[contador][7] = lista_de_coordenadas_por_indice[index_c][2]
+                                                contador += 1
+                                                @printar_no_final << ['Teste', 'Ativo', 'Status', 'Bateria', 'Tag', 'X', 'Y', 'Z']
+                                            end
                                         end
                                     end
                                 end
@@ -242,11 +246,13 @@ class FiltrosController < ApplicationController
                     end
                 end
             end
-        end
 
-        if @printar_no_final[contador][7] == 'Z'
-            @printar_no_final.pop                #Se o último teste montado não bater com os filtros, delete ele
-        end
+            if @printar_no_final[contador][7] == 'Z'
+                @printar_no_final.pop                #Se o último teste montado não bater com os filtros, delete ele
+            end
         
+        else
+            @nao_carregou_o_banco_de_dados = true
+        end    
     end
 end

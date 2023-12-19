@@ -14,7 +14,7 @@
 
   <div class="status">
     <label for="status">Status:</label>
-    <%= select_tag :status, options_for_select(["aprovado", "reprovado", "em execuçao", "parcialmente aprovado"]), include_blank: true %>
+    <%= select_tag :status, options_for_select(["aprovado", "reprovado", "em execução", "parcialmente aprovado"]), include_blank: true %>
   </div>
 
   <div class="ativos">
@@ -91,13 +91,32 @@
                   <%= "Nenhuma Tag Registrada" %>
                 <% end %>
               </div>
-            
             </div>
           </div>
         </div>
       <% end %>
     </div>
-  <%else%>
-    <%= "Não há testes registrados com as informações solicitadas"%>
-  <%end%>
+
+  <% else %>
+    <div class="exceções">
+      <% if @nao_carregou_o_banco_de_dados == true%>
+        <script>
+        // Use o JavaScript para exibir uma caixa de alerta com a mensagem desejada
+          alert("Não há testes no banco de dados ou os dados não foram devidamente carregados");
+        </script>
+        
+      <% elif @selected_experimento.nil?%>
+        <script>
+        // Use o JavaScript para exibir uma caixa de alerta com a mensagem desejada
+          alert("Selecione um experimento para a filtragem");
+        </script>
+
+      <% else %>
+        <script>
+          alert("Não há testes registrados com as informações solicitadas")
+        </script>
+    <% end %>
+    </div>
+  <% end %>
+  
 <%end%>

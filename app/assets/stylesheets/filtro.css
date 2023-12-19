@@ -87,3 +87,11 @@ input[type="submit"] {
   position: absolute;
   right: 600px;
 }
+
+.exceções{
+  display: block;
+  text-align: left;
+  margin-top: 0px;
+  position: absolute;
+  left: 600px;
+}
