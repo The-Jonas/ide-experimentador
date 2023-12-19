@@ -1,4 +1,4 @@
-when("the user is on the experiment test filtering screen") do
+When("the user is on the experiment test filtering screen") do
   visit '/filtros'
 end
 
@@ -18,9 +18,6 @@ Then("the user should see a list of filtered tests") do
   expect(page).to have_content('printar_no_final')
 end
 
-And("there are no tests with the selected filters")
-end
-
-Then("the user should see a warning message if no tests are associated") do
+Then("there are no tests with the selected filters, the user should see a warning message if no tests are associated") do
   expect(page).to have_content(string)
 end
