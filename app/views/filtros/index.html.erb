@@ -6,7 +6,7 @@
 
 <%= form_tag(filtros_index_path, method: :get, id: 'filtros') do %>
   <div class="experimento">
-    <%= label_tag :experimento, 'Selecione um experimento:' %>
+    <%= label_tag :experimento, 'Experimento:' %>
     <%= select_tag :experimento, options_for_select(@todos_os_experimentos), include_blank: true %>
   </div>
 
@@ -22,20 +22,67 @@
     <%= select_tag :ativos, options_for_select(["Habilitado", "Desabilitado"]), include_blank: true %>
   </div>
 
-  <div class="coordenadas">
-    <label for="coordenadas">Coordenadas:</label>
-    <%= label_tag "X -" %>
-    <%= text_field_tag :coordenadas_x, nil, size:2 %>
-    <%= label_tag "Y -" %>
-    <%= text_field_tag :coordenadas_y, nil, size:2 %>
-    <%= label_tag "Z -" %>
-    <%= text_field_tag :coordenadas_z, nil, size:2 %>
-  </div>
+<!-- Campo das coordenadas -->
 
-  <div class="bateria">
-    <label for="bateria">Bateria:</label>
-    <%= text_field_tag :bateria, nil, placeholder: "Digite com a porcentagem" %>
-  </div>
+  <!-- Adicione o link para o arquivo jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Adicione o link para o arquivo Inputmask -->
+<script src="https://rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.js"></script>
+
+<!-- Seu código HTML -->
+<div class="coordenadas">
+  <label for="coordenadas">Coordenadas</label>
+  <%= label_tag "X -" %>
+  <%= text_field_tag :coordenadas_x, nil, size: 2, class: "numeric-mask" %>
+  <%= label_tag "Y -" %>
+  <%= text_field_tag :coordenadas_y, nil, size: 2, class: "numeric-mask" %>
+  <%= label_tag "Z -" %>
+  <%= text_field_tag :coordenadas_z, nil, size: 2, class: "numeric-mask" %>
+</div>
+
+<!-- Adicione o script JavaScript para aplicar a máscara -->
+<script>
+  $(document).ready(function(){
+    $('.numeric-mask').inputmask({
+      mask: '9',
+      repeat: 10,  // ou a quantidade desejada de repetições
+      placeholder: ''
+    });
+  });
+</script>
+
+<!-- Fim do campo das coordenadas -->
+
+<!-- Campo de Bateria -->
+
+<div class="bateria">
+  <label for="bateria">Bateria:</label>
+  <%= text_field_tag :bateria, nil, placeholder: "Digite um valor válido", class: "input-bateria" %>
+  <span class="aviso" style="color: red;"></span>
+
+  <script>
+    $(document).ready(function(){
+      $('.input-bateria').on('input', function() {
+        var valor = $(this).val();
+
+        // Remova o símbolo '%' e converta para um número
+        var numero = parseInt(valor.replace('%', ''), 10);
+
+        // Verifique se o número está fora do intervalo desejado ou se está vazio
+        if (!(valor.trim() === '' || valor.trim() === '%' || (numero >= 0 && numero <= 100))) {
+          $('.aviso').text('\nDigite uma porcentagem válida (0-100).');
+        } else {
+          $('.aviso').text('');
+        } 
+      });
+    });
+  </script>
+</div>
+
+<!-- Fim do campo de bateria>
+
+<!-- Campo das tags -->
 
   <div class="tags">
     <label for="tags">Tags:</label>
@@ -48,6 +95,8 @@
       <% end %>
     </datalist>
   </div>
+
+<!-- Fim do campo das tags -->
 
   <div class="actions">
     <%= submit_tag 'Filtrar' %>
@@ -99,13 +148,8 @@
 
   <% else %>
     <div class="exceções">
-      <% if @nao_carregou_o_banco_de_dados == true%>
-        <script>
-        // Use o JavaScript para exibir uma caixa de alerta com a mensagem desejada
-          alert("Não há testes no banco de dados ou os dados não foram devidamente carregados");
-        </script>
         
-      <% elif @selected_experimento.nil?%>
+      <% if @selected_experimento.nil?%>
         <script>
         // Use o JavaScript para exibir uma caixa de alerta com a mensagem desejada
           alert("Selecione um experimento para a filtragem");

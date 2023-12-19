@@ -10,7 +10,7 @@ TrialExecution.delete_all
 
 p 'Iniciando carregamento de dados'
 
-#Experimentos do Sistema
+####### Experimentos do Sistema #######
 
 experimento = Experiment.create(
     {   
@@ -19,14 +19,12 @@ experimento = Experiment.create(
     }
 )
 
-
 experimento = Experiment.create(
     {   
         id: 2, name: 'Experimento 3', 
         disabled: false
     }
 )
-
 
 experimento = Experiment.create(
     {   
@@ -35,14 +33,12 @@ experimento = Experiment.create(
     }
 )
 
-
 experimento = Experiment.create(
     {   
         id: 4, name: 'Experimento 8', 
         disabled: false
     }
 )
-
 
 experimento = Experiment.create(
     {   
@@ -51,9 +47,9 @@ experimento = Experiment.create(
     }
 )
 
+#################################
 
-
-#Testes do sistema
+####### Testes do sistema #######
 
 trial = Trial.create(
     {   
@@ -76,7 +72,6 @@ trial = Trial.create(
     }
 )
 
-
 trial = Trial.create(
     {   
         id: 3, name: 'Teste 1', 
@@ -97,7 +92,6 @@ trial = Trial.create(
     }
 )
 
-
 trial = Trial.create(
     {   
         id: 5, name: 'Teste 5', 
@@ -107,8 +101,6 @@ trial = Trial.create(
         experiment: Experiment.find(3)
     }
 )
-
-
 
 trial = Trial.create(
     {   
@@ -120,8 +112,6 @@ trial = Trial.create(
     }
 )
 
-
-
 trial = Trial.create(
     {   
         id: 7, name: 'Teste 6', 
@@ -131,8 +121,6 @@ trial = Trial.create(
         experiment: Experiment.find(1)
     }
 )
-
-
 
 trial = Trial.create(
     {   
@@ -144,9 +132,9 @@ trial = Trial.create(
     }
 )
 
+######################################
 
-
-#Coordenadas no sistema 
+####### Coordenadas no sistema #######
 
 coordenada = Factor.create(
     {   
@@ -222,8 +210,9 @@ coordenada = Factor.create(
     }
 )
 
+###############################
 
-#Tags do sistema
+####### Tags do sistema #######
 
 tag = Tag.create(
     {   
@@ -306,8 +295,9 @@ tag = Tag.create(
 )
 
 
+###################################
 
-#Baterias no sistema
+####### Baterias no sistema #######
 
 bateria = Factor.create(
     {
@@ -361,9 +351,9 @@ bateria = Factor.create(
     }
 )
 
+#####################################
 
-
-#Ligar Tags aos testes
+####### Ligar Tags aos testes #######
 
 classificacao = Classification.create(
     {   
@@ -454,9 +444,9 @@ classificacao = Classification.create(
     }
 )
 
+############################################
 
-
-#Ligar Coordenadas aos testes
+####### Ligar Coordenadas aos testes #######
 
 #Experimento 1, Teste 1
 trial_factor = TrialFactor.create(
@@ -640,8 +630,10 @@ trial_factor = TrialFactor.create(
     }
 )
 
+#########################################
 
-#Ligar Baterias aos testes
+####### Ligar Baterias aos testes #######
+
 trial_factor = TrialFactor.create(
     {   
         factor: Factor.find(50),
@@ -705,8 +697,9 @@ trial_factor = TrialFactor.create(
     }
 )
 
+#######################################
 
-#Ligar Status aos Testes
+####### Ligar Status aos Testes #######
 
 trialExecution = TrialExecution.create(
     {   
@@ -739,7 +732,7 @@ trialExecution = TrialExecution.create(
     {   
         log: "D4", 
         status: "parcialmente aprovado",
-         trial: Trial.find(4)
+        trial: Trial.find(4)
     }
 )
 
