@@ -2,21 +2,27 @@
 
 h2 {
     color: #000000; /* Cor do texto */
-    background-color: #E9D6D6;
+    background-color: #ffffff;
     font-size: 24px; /* Tamanho da fonte */
     margin-bottom: 10px; /* Espaçamento inferior */
-    text-align: center;
-    margin: auto;
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 25px;
     
   }
 
 #filtros {
 
-  width: 400;
-  background-color: #E9D6D6; /* Cor de fundo */
+  position: absolute;
+  top: 50px;
+  left: 25px;
+  width: 350px;
+  height: 370px;
+  background-color: #ccc;
   padding: 10px; /* Espaçamento interno */
-  margin-bottom: 20px; /* Margem inferior */
+  border-radius: 10px; /* Adicionado para bordas arredondadas */
 }
+
 
 /* Estilo para os rótulos (labels) */
 label {
@@ -30,6 +36,7 @@ select, input[type="text"] {
   width: 100%; /* Faz com que ocupem a largura total disponível */
   padding: 8px; /* Espaçamento interno */
   margin-bottom: 10px; /* Margem inferior */
+  margin-top: 8px;
 }
 
 /* Estilo para o botão de submissão */
@@ -39,6 +46,8 @@ input[type="submit"] {
   padding: 10px; /* Espaçamento interno */
   border: none; /* Remove a borda padrão */
   cursor: pointer; /* Muda o cursor para indicar clicabilidade */
+  margin-top: 15px;
+  border-radius: 5px;
 }
 
 .experimento select{
@@ -71,5 +80,10 @@ input[type="submit"] {
   height: 15px;
 }
 
-
-
+.result-container {
+  display: block;
+  text-align: left;
+  margin-top: 0px;
+  position: absolute;
+  right: 600px;
+}

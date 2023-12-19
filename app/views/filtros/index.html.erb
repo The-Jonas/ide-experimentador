@@ -56,11 +56,11 @@
 
 
 <% if params[:commit] == 'Filtrar' %>
-  <h3>Resultados</h3>
 
   <% if !@printar_no_final.empty?%>
 
-    <div class="row">
+    <div class="result-container">
+      <h3>Resultados</h3>
       <% @printar_no_final.each do |item| %>
         <div class="col-md-3 mb-3">
           <div class="card">
