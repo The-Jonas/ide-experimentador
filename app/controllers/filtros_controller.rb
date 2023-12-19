@@ -247,7 +247,6 @@ class FiltrosController < ApplicationController
         if @printar_no_final[contador][7] == 'Z'
             @printar_no_final.pop                #Se o último teste montado não bater com os filtros, delete ele
         end
-
         
     end
 end

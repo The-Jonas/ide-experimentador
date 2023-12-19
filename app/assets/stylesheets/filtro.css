@@ -11,6 +11,8 @@ h2 {
   }
 
 #filtros {
+
+  width: 400;
   background-color: #E9D6D6; /* Cor de fundo */
   padding: 10px; /* Espaçamento interno */
   margin-bottom: 20px; /* Margem inferior */
@@ -38,3 +40,36 @@ input[type="submit"] {
   border: none; /* Remove a borda padrão */
   cursor: pointer; /* Muda o cursor para indicar clicabilidade */
 }
+
+.experimento select{
+  width: 140px;
+  height: 35px;
+}
+
+.status select{
+  width: 140px;
+  height: 35px;
+}
+
+.ativos select{
+  width: 140px;
+  height: 35px;
+}
+
+.coordenadas input{
+  width: 17px;
+  height: 17px;
+}
+
+.bateria input{
+  width: 180px;
+  height: 15px;
+}
+
+.tags input{
+  width: 185px;
+  height: 15px;
+}
+
+
+
