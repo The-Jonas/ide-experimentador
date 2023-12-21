@@ -7,7 +7,7 @@
 require 'cucumber/rails'
 require 'capybara-screenshot/cucumber'
 
-Encoding.default_external = Encoding::UTF_8
+
 
 # frozen_string_literal: true
 
@@ -84,4 +84,9 @@ Capybara.configure do |config|
   config.server_port = '3000'
 end
 
-Capybara.javascript_driver = :selenium_remote_chrome
+Capybara.register_driver :chrome_headless do |app|
+  Capybara::Selenium::Driver.new app, browser: :chrome,
+    options: Selenium::WebDriver::Chrome::Options.new(args: %w[headless disable-gpu])
+end
+
+Capybara.javascript_driver = :chrome_headless

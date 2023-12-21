@@ -150,15 +150,14 @@
     <div class="exceções">
         
       <% if @selected_experimento.nil?%>
-        <script>
-        // Use o JavaScript para exibir uma caixa de alerta com a mensagem desejada
-          alert("Selecione um experimento para a filtragem");
-        </script>
+        <h1>
+        selecione um experimento para a filtragem!
+        </h1>
 
       <% else %>
-        <script>
-          alert("Não há testes registrados com as informações solicitadas")
-        </script>
+        <h1>
+        Não há testes registrados com as informações solicitadas :c
+        </h1>
     <% end %>
     </div>
   <% end %>

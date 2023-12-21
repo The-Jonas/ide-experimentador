@@ -66,11 +66,12 @@ group :development do
 end
 
 group :test do
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
+  gem "capybara"
   gem 'capybara-screenshot'
   gem 'database_cleaner'
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
   gem "selenium-webdriver"
   gem "webdrivers"
+  gem "rubycritic"
+  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
 end

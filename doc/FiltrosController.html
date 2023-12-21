@@ -285,7 +285,7 @@
             <span class="ruby-ivar">@pegaOy</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:coordenadas_y</span>]                  <span class="ruby-comment">#Input das coordenadas</span>
             <span class="ruby-ivar">@pegaOz</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:coordenadas_z</span>]
             <span class="ruby-ivar">@pegaBateria</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:bateria</span>]                   <span class="ruby-comment">#Input da Bateria</span>
-            <span class="ruby-ivar">@pegaTag</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:tags</span>]                          <span class="ruby-comment">#Input da Tag</span>
+            <span class="ruby-ivar">@pegaTag</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:tags</span>].<span class="ruby-identifier">titleize</span>                 <span class="ruby-comment">#Input da Tag</span>
             <span class="ruby-ivar">@pegaStatus</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:status</span>]                     <span class="ruby-comment">#Input do Status</span>
             <span class="ruby-ivar">@pegativo</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:ativos</span>]                       <span class="ruby-comment">#Input do Ativo</span>
 
@@ -295,58 +295,66 @@
                 <span class="ruby-ivar">@pegativo</span> = <span class="ruby-keyword">true</span>
             <span class="ruby-keyword">end</span>
             
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaBateria</span> <span class="ruby-operator">!=</span> <span class="ruby-string">&quot;&quot;</span>
+                <span class="ruby-ivar">@pegaBateria</span> <span class="ruby-operator">+=</span> <span class="ruby-string">&#39;%&#39;</span> <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@pegaBateria</span>.<span class="ruby-identifier">end_with?</span>(<span class="ruby-string">&#39;%&#39;</span>)
+            <span class="ruby-keyword">end</span>
         <span class="ruby-keyword">end</span>
 
-        <span class="ruby-ivar">@printar_no_final</span> = []                                <span class="ruby-comment">#Lista com todos os testes que passaram nos filtros</span>
-        <span class="ruby-identifier">contador</span> = <span class="ruby-value">0</span>                                          <span class="ruby-comment">#Contador para inserção de dados nos índices corretos</span>
 
-        <span class="ruby-ivar">@printar_no_final</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&#39;Teste&#39;</span>, <span class="ruby-string">&#39;Ativo&#39;</span>, <span class="ruby-string">&#39;Status&#39;</span>, <span class="ruby-string">&#39;Bateria&#39;</span>, <span class="ruby-string">&#39;Tag&#39;</span>, <span class="ruby-string">&#39;X&#39;</span>, <span class="ruby-string">&#39;Y&#39;</span>, <span class="ruby-string">&#39;Z&#39;</span>] <span class="ruby-comment">#Bloco de teste</span>
+        <span class="ruby-ivar">@printar_no_final</span> = []                            <span class="ruby-comment">#Lista com todos os testes que passaram nos filtros</span>
 
-        <span class="ruby-identifier">lista_de_testes_ativos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ativo</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">testes</span>.<span class="ruby-identifier">any?</span>
+            
+            <span class="ruby-identifier">contador</span> = <span class="ruby-value">0</span>                                      <span class="ruby-comment">#Contador para inserção de dados nos índices corretos</span>
+
+            <span class="ruby-ivar">@printar_no_final</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&#39;Teste&#39;</span>, <span class="ruby-string">&#39;Ativo&#39;</span>, <span class="ruby-string">&#39;Status&#39;</span>, <span class="ruby-string">&#39;Bateria&#39;</span>, <span class="ruby-string">&#39;Tag&#39;</span>, <span class="ruby-string">&#39;X&#39;</span>, <span class="ruby-string">&#39;Y&#39;</span>, <span class="ruby-string">&#39;Z&#39;</span>] <span class="ruby-comment">#Bloco de teste</span>
+
+            <span class="ruby-identifier">lista_de_testes_ativos</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">ativo</span><span class="ruby-operator">|</span>
     
-            <span class="ruby-keyword">if</span> <span class="ruby-identifier">ativo</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span>
-                <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">0</span>] = <span class="ruby-identifier">ativo</span>[<span class="ruby-value">1</span>]
-                <span class="ruby-identifier">nome_teste_atual</span> = <span class="ruby-identifier">ativo</span>[<span class="ruby-value">1</span>]
-                <span class="ruby-identifier">index_a</span> = <span class="ruby-identifier">lista_de_testes_ativos</span>.<span class="ruby-identifier">find_index</span>(<span class="ruby-identifier">ativo</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">ativo</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span>
+                    <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">0</span>] = <span class="ruby-identifier">ativo</span>[<span class="ruby-value">1</span>]
+                    <span class="ruby-identifier">nome_teste_atual</span> = <span class="ruby-identifier">ativo</span>[<span class="ruby-value">1</span>]
+                    <span class="ruby-identifier">index_a</span> = <span class="ruby-identifier">lista_de_testes_ativos</span>.<span class="ruby-identifier">find_index</span>(<span class="ruby-identifier">ativo</span>)
                 
-                <span class="ruby-identifier">index_s</span> = <span class="ruby-identifier">lista_de_testes_status</span>.<span class="ruby-identifier">find_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lista</span><span class="ruby-operator">|</span>
-                    <span class="ruby-identifier">lista</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lista</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">nome_teste_atual</span>
-                <span class="ruby-keyword">end</span>
-
-                <span class="ruby-identifier">index_b</span> = <span class="ruby-identifier">lista_de_testes_bateria</span>.<span class="ruby-identifier">find_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lista</span><span class="ruby-operator">|</span>
-                    <span class="ruby-identifier">lista</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lista</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">nome_teste_atual</span>
-                <span class="ruby-keyword">end</span>
-
-                <span class="ruby-identifier">index_t</span> = <span class="ruby-identifier">lista_de_testes_tags</span>.<span class="ruby-identifier">find_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lista</span><span class="ruby-operator">|</span>
-                    <span class="ruby-identifier">lista</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lista</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">nome_teste_atual</span>
-                <span class="ruby-keyword">end</span>
+                    <span class="ruby-identifier">index_s</span> = <span class="ruby-identifier">lista_de_testes_status</span>.<span class="ruby-identifier">find_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lista</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">lista</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lista</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">nome_teste_atual</span>
+                    <span class="ruby-keyword">end</span>
                 
-                <span class="ruby-identifier">index_c</span> = <span class="ruby-identifier">lista_de_testes_coordenadas</span>.<span class="ruby-identifier">find_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lista</span><span class="ruby-operator">|</span>
-                    <span class="ruby-identifier">lista</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lista</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">nome_teste_atual</span>
-                <span class="ruby-keyword">end</span>
+                    <span class="ruby-identifier">index_b</span> = <span class="ruby-identifier">lista_de_testes_bateria</span>.<span class="ruby-identifier">find_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lista</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">lista</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lista</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">nome_teste_atual</span>
+                    <span class="ruby-keyword">end</span>
+            
+                    <span class="ruby-identifier">index_t</span> = <span class="ruby-identifier">lista_de_testes_tags</span>.<span class="ruby-identifier">find_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lista</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">lista</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lista</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">nome_teste_atual</span>
+                    <span class="ruby-keyword">end</span>
                 
-                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegativo</span>.<span class="ruby-identifier">blank?</span>  <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_habilitado_por_indice</span>[<span class="ruby-identifier">index_a</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegativo</span>
-                    <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">1</span>] = <span class="ruby-identifier">lista_habilitado_por_indice</span>[<span class="ruby-identifier">index_a</span>][<span class="ruby-value">0</span>]
+                    <span class="ruby-identifier">index_c</span> = <span class="ruby-identifier">lista_de_testes_coordenadas</span>.<span class="ruby-identifier">find_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">lista</span><span class="ruby-operator">|</span>
+                        <span class="ruby-identifier">lista</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@selected_experimento</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">lista</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">nome_teste_atual</span>
+                    <span class="ruby-keyword">end</span>
 
-                    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaStatus</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_status</span>[<span class="ruby-identifier">index_s</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaStatus</span>
-                        <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">2</span>] = <span class="ruby-identifier">lista_de_status</span>[<span class="ruby-identifier">index_s</span>][<span class="ruby-value">0</span>]
+                    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegativo</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;&quot;</span>  <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_habilitado_por_indice</span>[<span class="ruby-identifier">index_a</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegativo</span>
+                        <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">1</span>] = <span class="ruby-identifier">lista_habilitado_por_indice</span>[<span class="ruby-identifier">index_a</span>][<span class="ruby-value">0</span>]
 
-                        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaBateria</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_baterias_por_indice</span>[<span class="ruby-identifier">index_b</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaBateria</span>
-                            <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">3</span>] = <span class="ruby-identifier">lista_de_baterias_por_indice</span>[<span class="ruby-identifier">index_b</span>][<span class="ruby-value">0</span>]
-                            
-                            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaTag</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_tags_por_indice</span>[<span class="ruby-identifier">index_t</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@pegaTag</span>)
-                                <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">4</span>] = <span class="ruby-identifier">lista_de_tags_por_indice</span>[<span class="ruby-identifier">index_t</span>]
+                        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaStatus</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_status</span>[<span class="ruby-identifier">index_s</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaStatus</span>
+                            <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">2</span>] = <span class="ruby-identifier">lista_de_status</span>[<span class="ruby-identifier">index_s</span>][<span class="ruby-value">0</span>]
+
+                            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaBateria</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_baterias_por_indice</span>[<span class="ruby-identifier">index_b</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaBateria</span>
+                                <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">3</span>] = <span class="ruby-identifier">lista_de_baterias_por_indice</span>[<span class="ruby-identifier">index_b</span>][<span class="ruby-value">0</span>]
+                        
+                                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaTag</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_tags_por_indice</span>[<span class="ruby-identifier">index_t</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-ivar">@pegaTag</span>)
+                                    <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">4</span>] = <span class="ruby-identifier">lista_de_tags_por_indice</span>[<span class="ruby-identifier">index_t</span>]
                                 
-                                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaOx</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaOx</span>
-                                    <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">5</span>] = <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">0</span>]
+                                    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaOx</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaOx</span>
+                                        <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">5</span>] = <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">0</span>]
                                     
-                                    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaOy</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaOy</span>
-                                        <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">6</span>] = <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">1</span>]
+                                        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaOy</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">1</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaOy</span>
+                                            <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">6</span>] = <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">1</span>]
                                         
-                                        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaOz</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">2</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaOz</span>
-                                            <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">7</span>] = <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">2</span>]
-                                            <span class="ruby-identifier">contador</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-                                            <span class="ruby-ivar">@printar_no_final</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&#39;Teste&#39;</span>, <span class="ruby-string">&#39;Ativo&#39;</span>, <span class="ruby-string">&#39;Status&#39;</span>, <span class="ruby-string">&#39;Bateria&#39;</span>, <span class="ruby-string">&#39;Tag&#39;</span>, <span class="ruby-string">&#39;X&#39;</span>, <span class="ruby-string">&#39;Y&#39;</span>, <span class="ruby-string">&#39;Z&#39;</span>]
+                                            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@pegaOz</span>.<span class="ruby-identifier">blank?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">2</span>] <span class="ruby-operator">==</span> <span class="ruby-ivar">@pegaOz</span>
+                                                <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">7</span>] = <span class="ruby-identifier">lista_de_coordenadas_por_indice</span>[<span class="ruby-identifier">index_c</span>][<span class="ruby-value">2</span>]
+                                                <span class="ruby-identifier">contador</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+                                                <span class="ruby-ivar">@printar_no_final</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-string">&#39;Teste&#39;</span>, <span class="ruby-string">&#39;Ativo&#39;</span>, <span class="ruby-string">&#39;Status&#39;</span>, <span class="ruby-string">&#39;Bateria&#39;</span>, <span class="ruby-string">&#39;Tag&#39;</span>, <span class="ruby-string">&#39;X&#39;</span>, <span class="ruby-string">&#39;Y&#39;</span>, <span class="ruby-string">&#39;Z&#39;</span>]
+                                            <span class="ruby-keyword">end</span>
                                         <span class="ruby-keyword">end</span>
                                     <span class="ruby-keyword">end</span>
                                 <span class="ruby-keyword">end</span>
@@ -355,10 +363,10 @@
                     <span class="ruby-keyword">end</span>
                 <span class="ruby-keyword">end</span>
             <span class="ruby-keyword">end</span>
-        <span class="ruby-keyword">end</span>
 
-        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">7</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Z&#39;</span>
-            <span class="ruby-ivar">@printar_no_final</span>.<span class="ruby-identifier">pop</span>                <span class="ruby-comment">#Se o último teste montado não bater com os filtros, delete ele</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@printar_no_final</span>[<span class="ruby-identifier">contador</span>][<span class="ruby-value">7</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&#39;Z&#39;</span>
+                <span class="ruby-ivar">@printar_no_final</span>.<span class="ruby-identifier">pop</span>                <span class="ruby-comment">#Se o último teste montado não bater com os filtros, delete ele</span>
+            <span class="ruby-keyword">end</span>
         <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span></pre>
           </div>
@@ -375,7 +383,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.6.2.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
